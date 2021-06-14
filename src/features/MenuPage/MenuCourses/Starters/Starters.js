@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import MenuItem from "../MenuItem";
 
 const Starters = () => {
     const [starters, setStarters] = useState([])
@@ -17,8 +18,8 @@ const Starters = () => {
     const displayStarters = () => {
         if (starters.length > 0) {
             return starters.map(starter => {
-                return <StarterItem key={starter._id} name={starter.name} description={starter.description}
-                                    price={starter.price}/>
+                return <MenuItem key={starter._id} name={starter.name} description={starter.description}
+                                    price={starter.price} image={starter.imageURL}/>
             })
         }
         else return null
