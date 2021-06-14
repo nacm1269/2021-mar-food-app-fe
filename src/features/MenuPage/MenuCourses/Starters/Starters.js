@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-const StartersNav = () => {
+const Starters = () => {
     const [starters, setStarters] = useState([])
     const getStarters = async () => {
         const data = await fetch()
@@ -18,7 +18,7 @@ const StartersNav = () => {
         if (starters.length > 0) {
             return starters.map(starter => {
                 return <StarterItem key={starter._id} name={starter.name} description={starter.description}
-                                    price={starter.price}></StarterItem>
+                                    price={starter.price}/>
             })
         }
         else return null
@@ -31,4 +31,4 @@ const StartersNav = () => {
 
 }
 
-export default StartersNav
+export default Starters
