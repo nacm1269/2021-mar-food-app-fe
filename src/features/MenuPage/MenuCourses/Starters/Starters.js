@@ -2,11 +2,16 @@ import {useEffect, useState} from "react";
 import MenuItem from "../MenuItem";
 
 const Starters = () => {
+
+
+
     const [starters, setStarters] = useState([])
+
     const getStarters = async () => {
-        const data = await fetch()
+        const data = await fetch(/dishes/starters)
         return await data.json()
     }
+
     useEffect(() => {
         getStarters()
             .then(json => {
@@ -15,6 +20,7 @@ const Starters = () => {
                 }
             })
     })
+
     const displayStarters = () => {
         if (starters.length > 0) {
             return starters.map(starter => {
