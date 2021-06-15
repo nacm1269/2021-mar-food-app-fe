@@ -6,7 +6,7 @@ const Desserts = () => {
     const [desserts, setDesserts] = useState([])
 
     const getDesserts = async () => {
-        const data = await fetch(/dishes/desserts)
+        const data = await fetch('http://localhost:9000/dishes/desserts')
         return await data.json()
     }
 
