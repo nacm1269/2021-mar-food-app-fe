@@ -14,10 +14,10 @@ const Refreshments = () => {
         getRefreshments()
             .then(json => {
                 if (json.success) {
-                    setRefreshments(json.data.refreshments)
+                    setRefreshments(json.data)
                 }
             })
-    })
+    },[])
 
     const displayRefreshments = () => {
         if (refreshments.length > 0) {

@@ -14,10 +14,10 @@ const Desserts = () => {
         getDesserts()
             .then(json => {
                 if (json.success) {
-                    setDesserts(json.data.desserts)
+                    setDesserts(json.data)
                 }
             })
-    })
+    },[])
 
     const displayDesserts = () => {
         if (desserts.length > 0) {

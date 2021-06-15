@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const MenuCourses = () => {
+const MenuCourses = (props) => {
     return (
         <div className={"menu-dropdown"}>
             <div>
@@ -19,7 +19,7 @@ const MenuCourses = () => {
                 </Link>
             </div>
             <div className={"menu-course-items"}>
-                {this.props.children}
+                {props.children}
             </div>
         </div>
     )
