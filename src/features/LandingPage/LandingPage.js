@@ -1,7 +1,6 @@
 import React from 'react'
 import 'materialize-css';
 import { Button} from 'react-materialize';
-import Facebook from '@material-ui/core/facebook';
 import restaurantImage from './restaurantImage.jpg'
 import './LandingPage.css'
 
@@ -20,7 +19,6 @@ const LandingPage = () => {
                     <Button className='waves-effect waves-light btn-large white black-text' id='cssHook'>
                     Enter Site
                     </Button>
-                <Icon>Facebook</Icon>
             </div>
     )
 }
