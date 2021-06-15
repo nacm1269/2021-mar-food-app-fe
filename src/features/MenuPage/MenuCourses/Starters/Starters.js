@@ -7,7 +7,8 @@ const Starters = () => {
     const [starters, setStarters] = useState([])
 
     const getStarters = async () => {
-        const data = await fetch()
+
+        const data = await fetch('http://localhost:9000/dishes/starters')
         return await data.json()
     }
 

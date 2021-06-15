@@ -6,7 +6,7 @@ import './LandingPage.css'
 const LandingPage = () => {
     return (
         <section>
-            <img src={'https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg'} alt='a goat'/>
+            <img className={'landing-image'} src={'https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg'} alt='a goat'/>
                 <button className={Button}>Enter Site</button>
         </section>
     )
