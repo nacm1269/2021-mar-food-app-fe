@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import MenuItem from "../MenuItem";
+import ErrorMessage from "../../ErrorMessage";
 
 const Refreshments = () => {
 
@@ -26,7 +27,7 @@ const Refreshments = () => {
                                  price={refreshment.price} image={refreshment.imageURL}/>
             })
         }
-        else return null
+        else return ErrorMessage
     }
 
     return (
