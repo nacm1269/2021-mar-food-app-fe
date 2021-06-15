@@ -1,12 +1,13 @@
 import {useEffect, useState} from "react";
 import MenuItem from "../MenuItem";
+import ErrorMessage from "../../ErrorMessage";
 
 const Refreshments = () => {
 
     const [refreshments, setRefreshments] = useState([])
 
     const getRefreshments = async () => {
-        const data = await fetch('http://localhost:9000/dishes/refreshments')
+        const data = await fetch('http://localhost:3001/dishes/refreshments')
         return await data.json()
     }
 
@@ -14,10 +15,10 @@ const Refreshments = () => {
         getRefreshments()
             .then(json => {
                 if (json.success) {
-                    setRefreshments(json.data.refreshments)
+                    setRefreshments(json.data)
                 }
             })
-    })
+    },[])
 
     const displayRefreshments = () => {
         if (refreshments.length > 0) {
@@ -26,7 +27,7 @@ const Refreshments = () => {
                                  price={refreshment.price} image={refreshment.imageURL}/>
             })
         }
-        else return null
+        else return ErrorMessage
     }
 
     return (

@@ -1,25 +1,25 @@
+import React from 'react'
 import {useEffect, useState} from "react";
 import MenuItem from "../MenuItem";
+import ErrorMessage from "../../ErrorMessage";
 
 const Starters = () => {
-
-
 
     const [starters, setStarters] = useState([])
 
     const getStarters = async () => {
-        const data = await fetch('http://localhost:9000/dishes/starters')
+
+        const data = await fetch('http://localhost:3001/dishes/starters')
         return await data.json()
     }
 
     useEffect(() => {
         getStarters()
             .then(json => {
-                if (json.success) {
-                    setStarters(json.data.starters)
-                }
+                    console.log(json)
+                    setStarters(json.data)
             })
-    })
+    }, [])
 
     const displayStarters = () => {
         if (starters.length > 0) {
@@ -28,7 +28,7 @@ const Starters = () => {
                                     price={starter.price} image={starter.imageURL}/>
             })
         }
-        else return null
+        else return ErrorMessage
     }
     return (
         <main>

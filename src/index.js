@@ -2,13 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import LandingPage from "./features/LandingPage/LandingPage";
 import 'materialize-css/dist/css/materialize.min.css'
+import {Route, BrowserRouter as Router} from "react-router-dom";
+import MenuCourses from "./features/MenuPage/MenuCourses/MenuCourses";
+import Starters from "./features/MenuPage/MenuCourses/Starters/Starters";
+import Mains from "./features/MenuPage/MenuCourses/Mains/Mains";
+import Desserts from "./features/MenuPage/MenuCourses/Desserts/Desserts";
+import Refreshments from "./features/MenuPage/MenuCourses/Refreshments/Refreshments";
 
 
 ReactDOM.render(
   <React.StrictMode>
-      <LandingPage />
+      <Router>
+          <MenuCourses>
+              <Route path="/starters" component={Starters}/>
+              <Route path="/mains" component={Mains}/>
+              <Route path="/desserts" component={Desserts}/>
+              <Route path="/refreshments" component={Refreshments}/>
+          </MenuCourses>
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

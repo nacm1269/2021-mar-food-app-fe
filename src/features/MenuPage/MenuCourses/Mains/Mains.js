@@ -1,23 +1,22 @@
 import {useEffect, useState} from "react";
 import MenuItem from "../MenuItem";
+import ErrorMessage from "../../ErrorMessage";
 
 const Mains = () => {
 
     const [mains, setMains] = useState([])
 
     const getMains = async () => {
-        const data = await fetch('http://localhost:9000/dishes/mains')
+        const data = await fetch('http://localhost:3001/dishes/mains')
         return await data.json()
     }
 
     useEffect(() => {
         getMains()
             .then(json => {
-                if (json.success) {
-                    setMains(json.data.mains)
-                }
+                    setMains(json.data)
             })
-    })
+    },[])
 
     const displayMains = () => {
         if (mains.length > 0) {
@@ -26,7 +25,7 @@ const Mains = () => {
                                  price={main.price} image={main.imageURL}/>
             })
         }
-        else return null
+        else return ErrorMessage
     }
 
     return (
@@ -34,7 +33,6 @@ const Mains = () => {
             {displayMains()}
         </main>
     )
-
 }
 
 export default Mains
