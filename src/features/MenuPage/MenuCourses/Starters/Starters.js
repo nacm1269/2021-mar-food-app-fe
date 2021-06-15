@@ -4,36 +4,6 @@ import MenuItem from "../MenuItem";
 
 const Starters = () => {
 
-    const fakeData = [{
-        "_id": {
-            "$oid": "60c739e10b5f5c23d4a61684"
-        },
-        "name": "burger",
-        "description": "beef and cheese",
-        "price": {
-            "$numberDecimal": "12.99"
-        }
-    },
-        {
-            "_id": {
-                "$oid": "60c739e10b5f5c23d4a61684"
-            },
-            "name": "banana",
-            "description": "potassium and cheese",
-            "price": {
-                "$numberDecimal": "12.99"
-            }
-        },
-        {
-            "_id": {
-                "$oid": "60c739e10b5f5c23d4a61684"
-            },
-            "name": "calamari",
-            "description": "squid and cheese ",
-            "price": {
-                "$numberDecimal": "12.99"
-            }
-        }]
     const [starters, setStarters] = useState([])
 
     const getStarters = async () => {

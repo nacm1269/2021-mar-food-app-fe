@@ -2,11 +2,14 @@ import {useEffect, useState} from "react";
 import MenuItem from "../MenuItem";
 
 const Mains = () => {
+
     const [mains, setMains] = useState([])
+
     const getMains = async () => {
-        const data = await fetch()
+        const data = await fetch(/dishes/mains)
         return await data.json()
     }
+
     useEffect(() => {
         getMains()
             .then(json => {
@@ -15,6 +18,7 @@ const Mains = () => {
                 }
             })
     })
+
     const displayMains = () => {
         if (mains.length > 0) {
             return mains.map(main => {
@@ -24,6 +28,7 @@ const Mains = () => {
         }
         else return null
     }
+
     return (
         <main>
             {displayMains()}
