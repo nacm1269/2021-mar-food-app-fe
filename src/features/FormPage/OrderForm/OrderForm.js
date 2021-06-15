@@ -8,22 +8,36 @@ const OrderForm = () => {
 
     console.log(address)
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        fetch('http://localhost:3001/orders', {
-            "method": "POST",
-            "body": JSON.stringify(name),
-            "headers":
-                {
-                    "content-type": "application/JSON"
-                }
-                    .then (res => res.json())
-                    .then ((data) => {
-                        //do stuff with your data
-                    })
-        })
+    const formData = {
+        'name': name,
+        'email': email,
+        'address': address
     }
+
+    const resetForm = () => {
+        setName(''),
+        setEmail(''),
+        setAddress('')
+    }
+
+    const handleSubmit = (e) => {
+        fetch('http://localhost:3002/send', {
+            method: "POST",
+            body: JSON.stringify(formData),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        }).then(
+            (response) => (response.json())
+        ).then((response)=> {
+            if (response.status === 'success') {
+                alert("Message Sent.");
+                resetForm()
+            } else if(response.status === 'fail') {
+                alert("Message failed to send.")
+            }
+        })
 
     const onNameChange = (e) => {
         setName(e.target.value)
