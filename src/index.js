@@ -1,16 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import { store } from './app/store';
-import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
+import {Route, BrowserRouter as Router} from "react-router-dom";
+import MenuCourses from "./features/MenuPage/MenuCourses/MenuCourses";
+import Starters from "./features/MenuPage/MenuCourses/Starters/Starters";
+import Mains from "./features/MenuPage/MenuCourses/Mains/Mains";
+import Desserts from "./features/MenuPage/MenuCourses/Desserts/Desserts";
+import Refreshments from "./features/MenuPage/MenuCourses/Refreshments/Refreshments";
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+      <Router>
+          <MenuCourses>
+              <Route path="/starters" component={Starters}/>
+              <Route path="/mains" component={Mains}/>
+              <Route path="/desserts" component={Desserts}/>
+              <Route path="/refreshments" component={Refreshments}/>
+          </MenuCourses>
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
