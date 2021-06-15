@@ -21,8 +21,8 @@ ReactDOM.render(
               <Route path="/desserts" component={Desserts}/>
               <Route path="/refreshments" component={Refreshments}/>
           </MenuCourses>
-          <OrderForm />
       </Router>
+      <OrderForm />
   </React.StrictMode>,
   document.getElementById('root')
 );
