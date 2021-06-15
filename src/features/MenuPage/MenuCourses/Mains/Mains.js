@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import MenuItem from "../MenuItem";
+import ErrorMessage from "../../ErrorMessage";
 
 const Mains = () => {
 
@@ -13,9 +14,7 @@ const Mains = () => {
     useEffect(() => {
         getMains()
             .then(json => {
-
                     setMains(json.data)
-
             })
     },[])
 
@@ -26,7 +25,7 @@ const Mains = () => {
                                  price={main.price} image={main.imageURL}/>
             })
         }
-        else return null
+        else return ErrorMessage
     }
 
     return (
@@ -34,7 +33,6 @@ const Mains = () => {
             {displayMains()}
         </main>
     )
-
 }
 
 export default Mains
