@@ -1,14 +1,27 @@
 import React from 'react'
 import 'materialize-css';
-import { Button } from 'materialize-css';
+import { Button} from 'react-materialize';
+import Facebook from '@material-ui/core/facebook';
+import restaurantImage from './restaurantImage.jpg'
 import './LandingPage.css'
 
 const LandingPage = () => {
     return (
-        <section>
-            <img className={'landing-image'} src={'https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg'} alt='a goat'/>
-                <button className={Button}>Enter Site</button>
-        </section>
+            <div className='responsive-img box'
+                style={{
+                    backgroundImage: `url(${restaurantImage})`,
+                    backgroundSize: "cover",
+                    height: "100vh",
+                    width: "100vw",
+                    alt: "restaurant hanging lights",
+                    backgroundBlendMode: "multiply"
+                }}>
+                {/*<img className={'responsive-img'} src={restaurantImage} alt='restaurant hanging lights'/>*/}
+                    <Button className='waves-effect waves-light btn-large white black-text' id='cssHook'>
+                    Enter Site
+                    </Button>
+                <Icon>Facebook</Icon>
+            </div>
     )
 }
 

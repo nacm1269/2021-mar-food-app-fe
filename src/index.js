@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import LandingPage from "./features/LandingPage/LandingPage";
+import 'materialize-css/dist/css/materialize.min.css'
+
 
 ReactDOM.render(
   <React.StrictMode>
