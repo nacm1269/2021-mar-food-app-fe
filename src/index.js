@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import 'materialize-css/dist/css/materialize.min.css'
 import {Route, BrowserRouter as Router} from "react-router-dom";
 import MenuCourses from "./features/MenuPage/MenuCourses/MenuCourses";
 import Starters from "./features/MenuPage/MenuCourses/Starters/Starters";
