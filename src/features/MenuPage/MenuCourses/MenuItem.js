@@ -12,7 +12,7 @@ const MenuItem = (props) => {
                 {props.description}
             </h2>
             <h3>
-                £{props.price}
+                £{props.price.$numberDecimal}
             </h3>
         </div>
     )

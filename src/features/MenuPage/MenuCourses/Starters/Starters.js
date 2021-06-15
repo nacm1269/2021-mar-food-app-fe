@@ -8,18 +8,17 @@ const Starters = () => {
 
     const getStarters = async () => {
 
-        const data = await fetch('http://localhost:9000/dishes/starters')
+        const data = await fetch('http://localhost:3001/dishes/starters')
         return await data.json()
     }
 
     useEffect(() => {
         getStarters()
             .then(json => {
-                if (json.success) {
-                    setStarters(json.data.starters)
-                }
+                    console.log(json)
+                    setStarters(json.fruit)
             })
-    })
+    }, [])
 
     const displayStarters = () => {
         if (starters.length > 0) {

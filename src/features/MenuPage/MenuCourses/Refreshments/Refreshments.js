@@ -6,7 +6,7 @@ const Refreshments = () => {
     const [refreshments, setRefreshments] = useState([])
 
     const getRefreshments = async () => {
-        const data = await fetch('http://localhost:9000/dishes/refreshments')
+        const data = await fetch('http://localhost:3001/dishes/refreshments')
         return await data.json()
     }
 
