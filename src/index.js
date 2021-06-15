@@ -8,6 +8,7 @@ import Starters from "./features/MenuPage/MenuCourses/Starters/Starters";
 import Mains from "./features/MenuPage/MenuCourses/Mains/Mains";
 import Desserts from "./features/MenuPage/MenuCourses/Desserts/Desserts";
 import Refreshments from "./features/MenuPage/MenuCourses/Refreshments/Refreshments";
+import OrderForm from "./features/FormPage/OrderForm/OrderForm";
 
 
 ReactDOM.render(
@@ -19,6 +20,7 @@ ReactDOM.render(
               <Route path="/desserts" component={Desserts}/>
               <Route path="/refreshments" component={Refreshments}/>
           </MenuCourses>
+          <OrderForm />
       </Router>
   </React.StrictMode>,
   document.getElementById('root')
