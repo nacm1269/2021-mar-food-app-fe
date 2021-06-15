@@ -6,18 +6,18 @@ const Mains = () => {
     const [mains, setMains] = useState([])
 
     const getMains = async () => {
-        const data = await fetch('http://localhost:3001/dishes/starters')
+        const data = await fetch('http://localhost:3001/dishes')
         return await data.json()
     }
 
     useEffect(() => {
         getMains()
             .then(json => {
-                if (json.success) {
+
                     setMains(json.data)
-                }
+
             })
-    })
+    },[])
 
     const displayMains = () => {
         if (mains.length > 0) {

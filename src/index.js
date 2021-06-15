@@ -4,11 +4,17 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Starters from "./features/MenuPage/MenuCourses/Starters/Starters";
 import Mains from "./features/MenuPage/MenuCourses/Mains/Mains";
+import {Route, BrowserRouter as Router} from "react-router-dom";
+
 
 ReactDOM.render(
   <React.StrictMode>
+      <Router>
+          <MenuCourses>
       <Starters />
-      <Mains/>
+      <Mains />
+        </MenuCourses>
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

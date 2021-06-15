@@ -8,7 +8,7 @@ const Starters = () => {
 
     const getStarters = async () => {
 
-        const data = await fetch('http://localhost:3001/dishes/starters')
+        const data = await fetch('http://localhost:3001/dishes')
         return await data.json()
     }
 
