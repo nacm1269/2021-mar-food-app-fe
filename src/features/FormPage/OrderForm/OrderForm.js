@@ -13,7 +13,7 @@ const OrderForm = () => {
 
         fetch('http://localhost:3001/orders', {
             "method": "POST",
-            "body": JSON.stringify(),
+            "body": JSON.stringify(name),
             "headers":
                 {
                     "content-type": "application/JSON"
