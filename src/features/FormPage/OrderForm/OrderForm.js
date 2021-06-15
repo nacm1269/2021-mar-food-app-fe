@@ -6,13 +6,13 @@ const OrderForm = () => {
     const [email, setEmail] = useState('');
     const [address, setAddress] = useState('');
 
-    console.log(name)
+    console.log(address)
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch('http://localhost:3000/orders', {
-            "method": POST,
+        fetch('http://localhost:3001/orders', {
+            "method": "POST",
             "body": JSON.stringify(),
             "headers":
                 {
