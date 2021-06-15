@@ -6,7 +6,7 @@ const Mains = () => {
     const [mains, setMains] = useState([])
 
     const getMains = async () => {
-        const data = await fetch('http://localhost:3001/dishes/mains')
+        const data = await fetch('http://localhost:3001/dishes/starters')
         return await data.json()
     }
 
@@ -14,7 +14,7 @@ const Mains = () => {
         getMains()
             .then(json => {
                 if (json.success) {
-                    setMains(json.data.mains)
+                    setMains(json.data)
                 }
             })
     })

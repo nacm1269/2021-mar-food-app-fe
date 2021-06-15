@@ -16,7 +16,7 @@ const Starters = () => {
         getStarters()
             .then(json => {
                     console.log(json)
-                    setStarters(json.fruit)
+                    setStarters(json.data)
             })
     }, [])
 

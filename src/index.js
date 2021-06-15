@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Starters from "./features/MenuPage/MenuCourses/Starters/Starters";
+import Mains from "./features/MenuPage/MenuCourses/Mains/Mains";
 
 ReactDOM.render(
   <React.StrictMode>
       <Starters />
+      <Mains/>
   </React.StrictMode>,
   document.getElementById('root')
 );
