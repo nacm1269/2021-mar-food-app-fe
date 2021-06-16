@@ -42,9 +42,11 @@ const MenuItem = (props) => {
             })
                 .then(res => res.json())
                 .then((data) => {
-                    console.log(data)
-
                 })
+        }
+        else {
+            alert('There was an error submitting your order, please try again.')
+            console.error('There was an error!');
         }
         }
 
