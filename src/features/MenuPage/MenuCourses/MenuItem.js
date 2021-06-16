@@ -1,5 +1,5 @@
 import 'materialize-css';
-// import { Button, Card, Row, Col } from 'react-materialize';
+import { Button} from 'react-materialize';
 
 const MenuItem = (props) => {
     return (
@@ -14,6 +14,9 @@ const MenuItem = (props) => {
             <h3>
                 £{props.price.$numberDecimal}
             </h3>
+            <Button className='waves-effect waves-light btn-large black white-text'>
+                +
+            </Button>
         </div>
     )
 }
