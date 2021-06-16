@@ -4,40 +4,46 @@ const OrderForm = () => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [address, setAddress] = useState('');
-
-    console.log(address)
+    const [firstLineAddress, setFirstLineAddress] = useState('');
+    const [postcode, setPostcode] = useState('');
 
     const formData = {
         'name': name,
         'email': email,
-        'address': address
+        'firstLineAddress': firstLineAddress,
+        'postcode': postcode
     }
 
     // const resetForm = () => {
-    //     setName(''),
-    //     setEmail(''),
-    //     setAddress('')
+    //     setName('')
+    //     setEmail('')
+    //     setFirstLineAddress('')
+    //     setPostcode('')
     // }
 
     const handleSubmit = (e) => {
+        e.preventDefault()
         fetch('http://localhost:3001/orders', {
-            method: "POST",
-            body: JSON.stringify(formData),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-        }).then(
-            (response) => (response.json())
-        ).then((response)=> {
-            if (response.status === 'success') {
-                alert("Message Sent.");
-                // resetForm()
-            } else if(response.status === 'fail') {
-                alert("Message failed to send.")
+                "method": "POST",
+                "body": JSON.stringify(formData),
+                "headers":
+                    {
+                        "content-type": "application/JSON"
+                    }
             }
-        })
+        )
+            .then (res => res.json())
+            .then ((data) => {
+                //do stuff with your data
+            })
+    }
+
+    // save order id from response to local storage
+    // handleFormSubmit = () => {
+    //   const { user, rememberMe } = this.state;
+    //   localStorage.setItem('orderId', orderId);
+    //   localStorage.setItem('user', rememberMe ? user : '');
+    // };
 
     const onNameChange = (e) => {
         setName(e.target.value)
@@ -47,12 +53,16 @@ const OrderForm = () => {
         setEmail(e.target.value)
     }
 
-    const onAddressChange = (e) => {
-        setAddress(e.target.value)
+    const onFirstLineAddressChange = (e) => {
+        setFirstLineAddress(e.target.value)
+    }
+    const onPostcodeChange = (e) => {
+        setPostcode(e.target.value)
     }
 
     return (
         <form onSubmit={handleSubmit}>
+
             <label>
                 Name:
                 <input type="text" value={name} onChange={onNameChange}/>
@@ -62,12 +72,16 @@ const OrderForm = () => {
                 <input type="email" value={email} onChange={onEmailChange}/>
             </label>
             <label>
-                Postcode:
-                <input type="text" value={address} onChange={onAddressChange}/>
+                First Line of Address:
+                <input type="text" value={firstLineAddress} onChange={onFirstLineAddressChange}/>
+            </label>
+            <label>
+            Postcode:
+                <input type="text" value={postcode} onChange={onPostcodeChange}/>
             </label>
             <button type="submit" value="Submit">Confirm Order</button>
         </form>
     );
-}}
+}
 
 export default OrderForm
