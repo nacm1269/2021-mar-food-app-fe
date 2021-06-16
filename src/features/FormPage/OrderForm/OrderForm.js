@@ -6,12 +6,13 @@ const OrderForm = () => {
     const [email, setEmail] = useState('');
     const [firstLineAddress, setFirstLineAddress] = useState('');
     const [postcode, setPostcode] = useState('');
+    const [orderId, setOrderId] = useState('');
 
     const formData = {
         'name': name,
-        'email': email,
-        'firstLineAddress': firstLineAddress,
-        'postcode': postcode
+        'firstLineOfAddress': firstLineAddress,
+        'postcode': postcode,
+        'email': email
     }
 
     // const resetForm = () => {
@@ -35,16 +36,9 @@ const OrderForm = () => {
             .then (res => res.json())
             .then ((data) => {
                 //do stuff with your data
-                localStorage.setItem(data._id)
+                localStorage.setItem("orderId", data._id)
             })
     }
-
-    // save order id from response to local storage
-    // handleFormSubmit = () => {
-    //   const { user, rememberMe } = this.state;
-    //   localStorage.setItem('orderId', orderId);
-    //   localStorage.setItem('user', rememberMe ? user : '');
-    // };
 
     const onNameChange = (e) => {
         setName(e.target.value)
