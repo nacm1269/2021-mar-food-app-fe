@@ -32,11 +32,15 @@ const OrderForm = () => {
                     }
             }
         )
-            .then (res => res.json())
-            .then ((data) => {
-                if(data.data[0]._id != null) {
+            .then(res => res.json())
+            .then((data) => {
+                if (data.ok) {
                     localStorage.setItem("orderId", data.data[0]._id)
                 }
+            })
+            .catch(() => {
+                alert('There was an error submitting your order, please try again.')
+                console.error('There was an error!');
             })
     }
 
@@ -57,7 +61,6 @@ const OrderForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-
             <label>
                 Name:
                 <input type="text" value={name} onChange={onNameChange}/>
