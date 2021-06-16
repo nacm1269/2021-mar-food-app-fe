@@ -24,7 +24,7 @@ const Desserts = () => {
         if (desserts.length > 0) {
             return desserts.map(dessert => {
                 return <MenuItem key={dessert._id} name={dessert.name} description={dessert.description}
-                                 price={dessert.price} image={dessert.imageURL}/>
+                                 price={dessert.price} image={dessert.imageURL} menuItemId={dessert._id}/>
             })
         }
         else return ErrorMessage

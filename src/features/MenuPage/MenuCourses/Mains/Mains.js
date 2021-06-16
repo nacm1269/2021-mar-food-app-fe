@@ -22,7 +22,7 @@ const Mains = () => {
         if (mains.length > 0) {
             return mains.map(main => {
                 return <MenuItem key={main._id} name={main.name} description={main.description}
-                                 price={main.price} image={main.imageURL}/>
+                                 price={main.price} image={main.imageURL} menuItemId={main._id}/>
             })
         }
         else return ErrorMessage

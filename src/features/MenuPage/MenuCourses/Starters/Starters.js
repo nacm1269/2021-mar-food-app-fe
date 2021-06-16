@@ -25,7 +25,7 @@ const Starters = () => {
         if (starters.length > 0) {
             return starters.map(starter => {
                 return <MenuItem key={starter._id} name={starter.name} description={starter.description}
-                                    price={starter.price} image={starter.imageURL}/>
+                                    price={starter.price} image={starter.imageURL} menuItemId={starter._id}/>
             })
         }
         else return ErrorMessage
