@@ -14,6 +14,11 @@ const MenuItem = (props) => {
             setQuantity(quantity + 1)
         }
 
+const decrementCount = () => {
+            if (quantity !== 0 ) {
+                setQuantity(quantity - 1)
+            }
+}
     const order = {
         orderId: orderId,
         orderItems: [
@@ -29,16 +34,32 @@ const MenuItem = (props) => {
     // }
 
     const addItemToOrder = (order) => {
+        if (order.quantity !== 0) {
+            fetch('http://localhost:3000/orders/addToOrder', {
+                "method": "PUT",
+                "body": JSON.stringify(order),
+                "headers":
+                    {
+                        "content-type": "application/JSON"
+                    }
+                        .then(res => res.json())
+                        .then((data) => {
+                            //add data that is returned to localstorage
+                        })
+            })
+        }
+    }
 
-        fetch('http://localhost:3000/orders', {
+    const removeItemFromOrder = (order) => {
+            fetch('http://localhost:3000/orders/removeDish',{
             "method": "PUT",
-            "body": JSON.stringify(order),
+            "body": JSON.stringify(/* your data goes here */),
             "headers":
                 {
                     "content-type": "application/JSON"
                 }
-                    .then(res => res.json())
-                    .then((data) => {
+                    .then (res => res.json())
+                    .then ((data) => {
                         //do stuff with your data
                     })
         })
@@ -56,13 +77,13 @@ const MenuItem = (props) => {
             <h3>
                 £{props.price.$numberDecimal}
             </h3>
-            {/*<Button className='waves-effect waves-light btn-small black white-text' onClick={decrementCount}>*/}
-            {/*        /!*onClick we want to take the menu item's id from props*!/*/}
-            {/*        /!*count the amount of times this button is clicked (what function?)*!/*/}
-            {/*        /!*pass this number and the menu item id to the 'AddToOrder' component*!/*/}
-            {/*        /!*store the menu item id and clicks as a quantity in an object that will populate the 'order items' array*!/*/}
-            {/*    -*/}
-            {/*</Button>*/}
+            <Button className='waves-effect waves-light btn-small black white-text' onClick={decrementCount}>
+                    {/*onClick we want to take the menu item's id from props*/}
+                    {/*count the amount of times this button is clicked (what function?)*/}
+                    {/*pass this number and the menu item id to the 'AddToOrder' component*/}
+                    {/*store the menu item id and clicks as a quantity in an object that will populate the 'order items' array*/}
+                -
+            </Button>
             <h4 style={{
                 display: 'inline'
             }}>
