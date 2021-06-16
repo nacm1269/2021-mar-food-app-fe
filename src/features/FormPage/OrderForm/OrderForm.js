@@ -35,6 +35,7 @@ const OrderForm = () => {
             .then (res => res.json())
             .then ((data) => {
                 //do stuff with your data
+                localStorage.setItem(data._id)
             })
     }
 
