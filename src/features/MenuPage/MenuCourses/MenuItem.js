@@ -48,23 +48,23 @@ const MenuItem = (props) => {
         }
         }
 
-    const removeItemFromOrder = (order) => {
-        console.log(order)
-        if (order.orderItems[0].quantity !== 0) {
-            fetch('http://localhost:3001/orders/removeDish', {
-                "method": "PUT",
-                "body": JSON.stringify(order),
-                "headers":
-                    {
-                        "content-type": "application/JSON"
-                    }
-            })
-                .then(res => res.json())
-                .then((data) => {
-                    //add data that is returned to localstorage
-                })
-        }
-    }
+    // const removeItemFromOrder = (order) => {
+    //     console.log(order)
+    //     if (order.orderItems[0].quantity !== 0) {
+    //         fetch('http://localhost:3001/orders/removeDish', {
+    //             "method": "PUT",
+    //             "body": JSON.stringify(order),
+    //             "headers":
+    //                 {
+    //                     "content-type": "application/JSON"
+    //                 }
+    //         })
+    //             .then(res => res.json())
+    //             .then((data) => {
+    //                 //add data that is returned to localstorage
+    //             })
+    //     }
+    // }
 
     return (
         <div>
