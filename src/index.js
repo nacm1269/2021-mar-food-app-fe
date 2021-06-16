@@ -9,18 +9,20 @@ import Starters from "./features/MenuPage/MenuCourses/Starters/Starters";
 import Mains from "./features/MenuPage/MenuCourses/Mains/Mains";
 import Desserts from "./features/MenuPage/MenuCourses/Desserts/Desserts";
 import Refreshments from "./features/MenuPage/MenuCourses/Refreshments/Refreshments";
+import OrderForm from "./features/FormPage/OrderForm/OrderForm";
 
 
 ReactDOM.render(
   <React.StrictMode>
       <Router>
           <MenuCourses>
-              <Route path="/starters" component={Starters}/>
-              <Route path="/mains" component={Mains}/>
-              <Route path="/desserts" component={Desserts}/>
-              <Route path="/refreshments" component={Refreshments}/>
+              <Route exact path="/starters" component={Starters}/>
+              <Route exact path="/mains" component={Mains}/>
+              <Route exact path="/desserts" component={Desserts}/>
+              <Route exact path="/refreshments" component={Refreshments}/>
           </MenuCourses>
       </Router>
+      <OrderForm />
   </React.StrictMode>,
   document.getElementById('root')
 );
