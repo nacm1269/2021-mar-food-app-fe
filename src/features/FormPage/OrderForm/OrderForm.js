@@ -6,7 +6,6 @@ const OrderForm = () => {
     const [email, setEmail] = useState('');
     const [firstLineAddress, setFirstLineAddress] = useState('');
     const [postcode, setPostcode] = useState('');
-    const [orderId, setOrderId] = useState('');
 
     const formData = {
         'name': name,
@@ -35,8 +34,9 @@ const OrderForm = () => {
         )
             .then (res => res.json())
             .then ((data) => {
-                //do stuff with your data
-                localStorage.setItem("orderId", data._id)
+                if(data.data[0]._id != null) {
+                    localStorage.setItem("orderId", data.data[0]._id)
+                }
             })
     }
 
