@@ -36,11 +36,10 @@ const OrderForm = () => {
             .then((data) => {
                 if (data.ok) {
                     localStorage.setItem("orderId", data.data[0]._id)
+                } else {
+                    alert('There was an error submitting your order, please try again.')
+                    console.error('There was an error!');
                 }
-            })
-            .catch(() => {
-                alert('There was an error submitting your order, please try again.')
-                console.error('There was an error!');
             })
     }
 
