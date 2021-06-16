@@ -16,7 +16,6 @@ const Starters = () => {
     useEffect(() => {
         getStarters()
             .then(json => {
-                    console.log(json)
                     setStarters(json.data)
             })
     }, [])

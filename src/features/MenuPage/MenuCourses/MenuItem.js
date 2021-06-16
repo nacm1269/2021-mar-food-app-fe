@@ -5,20 +5,20 @@ import { useState} from "react";
 
 const MenuItem = (props) => {
 
-        const [menuItemId, setMenuItemId] = useState (props.menuItemId)
-        const [quantity, setQuantity] = useState(0)
+    const [menuItemId] = useState (props.menuItemId)
+    const [quantity, setQuantity] = useState(0)
+    const orderId = localStorage.getItem('orderId')
 
-        const orderId = localStorage.getItem('orderId')
+    const addToQuantity = () => {
+        setQuantity(quantity + 1)
+    }
 
-        const addQuantityAndItem = () => {
-            setQuantity(quantity + 1)
-        }
+    const removeFromQuantity = () => {
+                if (quantity !== 0 ) {
+                    setQuantity(quantity - 1)
+                }
+    }
 
-const decrementCount = () => {
-            if (quantity !== 0 ) {
-                setQuantity(quantity - 1)
-            }
-}
     const order = {
         orderId: orderId,
         orderItems: [
@@ -29,40 +29,41 @@ const decrementCount = () => {
         ]
     }
 
-    // const logOrder = () => {
-    //     console.log(order)
-    // }
-
     const addItemToOrder = (order) => {
-        if (order.quantity !== 0) {
-            fetch('http://localhost:3000/orders/addToOrder', {
+        console.log(order)
+        if (order.orderItems[0].quantity !== 0) {
+            fetch('http://localhost:3001/orders/addToOrder', {
                 "method": "PUT",
                 "body": JSON.stringify(order),
                 "headers":
                     {
                         "content-type": "application/JSON"
                     }
-                        .then(res => res.json())
-                        .then((data) => {
-                            //add data that is returned to localstorage
-                        })
             })
+                .then(res => res.json())
+                .then((data) => {
+                    console.log(data)
+
+                })
         }
-    }
+        }
 
     const removeItemFromOrder = (order) => {
-            fetch('http://localhost:3000/orders/removeDish',{
-            "method": "PUT",
-            "body": JSON.stringify(/* your data goes here */),
-            "headers":
-                {
-                    "content-type": "application/JSON"
-                }
-                    .then (res => res.json())
-                    .then ((data) => {
-                        //do stuff with your data
-                    })
-        })
+        console.log(order)
+        if (order.orderItems[0].quantity !== 0) {
+            fetch('http://localhost:3001/orders/removeDish', {
+                "method": "PUT",
+                "body": JSON.stringify(order),
+                "headers":
+                    {
+                        "content-type": "application/JSON"
+                    }
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    //add data that is returned to localstorage
+                })
+        }
     }
 
     return (
@@ -77,7 +78,7 @@ const decrementCount = () => {
             <h3>
                 £{props.price.$numberDecimal}
             </h3>
-            <Button className='waves-effect waves-light btn-small black white-text' onClick={decrementCount}>
+            <Button className='waves-effect waves-light btn-small black white-text' onClick={removeFromQuantity}>
                     {/*onClick we want to take the menu item's id from props*/}
                     {/*count the amount of times this button is clicked (what function?)*/}
                     {/*pass this number and the menu item id to the 'AddToOrder' component*/}
@@ -89,15 +90,17 @@ const decrementCount = () => {
             }}>
                 {quantity}
             </h4>
-            <Button className='waves-effect waves-light btn-small black white-text ' onClick={addQuantityAndItem}
+            <Button className='waves-effect waves-light btn-small black white-text ' onClick={addToQuantity}
                     style={{margin: '10px'}}>
                 +
             </Button>
-            <Button className='waves-effect waves-light btn-small black white-text ' onClick={addItemToOrder}
+            <Button className='waves-effect waves-light btn-small black white-text ' onClick={ () => addItemToOrder(order)}
                     style={{margin: '10px'}}>
                 Add Item To Order
             </Button>
-
+            {/*<Button className='waves-effect waves-light btn-small black white-text ' onClick={removeItemFromOrder}>*/}
+            {/*    Remove Item From Order*/}
+            {/*</Button>*/}
         </div>
     )
 }

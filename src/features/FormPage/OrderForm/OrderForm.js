@@ -34,7 +34,7 @@ const OrderForm = () => {
         )
             .then(res => res.json())
             .then((data) => {
-                if (data.ok) {
+                if (data.data) {
                     localStorage.setItem("orderId", data.data[0]._id)
                 } else {
                     alert('There was an error submitting your order, please try again.')
