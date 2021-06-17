@@ -1,6 +1,7 @@
 import 'materialize-css';
 import { Button} from 'react-materialize';
 import { useState} from "react";
+import './MenuItem.css'
 
 
 const MenuItem = (props) => {
@@ -68,7 +69,7 @@ const MenuItem = (props) => {
     //     }
     // }
     return (
-        <div>
+        <div className={"items-list"}>
             <img src={props.image} alt={props.name}/>
             <h1>
                 {props.name}
@@ -79,7 +80,7 @@ const MenuItem = (props) => {
             <h3>
                 £{props.price.$numberDecimal}
             </h3>
-            <Button className='waves-effect waves-light btn-small black white-text' onClick={removeFromQuantity}>
+            <Button id={"quantity-button"} className='waves-effect waves-light btn-small black white-text' onClick={removeFromQuantity} style={{margin: '10px', height: '30px', width: '10px'}}>
                     {/*onClick we want to take the menu item's id from props*/}
                     {/*count the amount of times this button is clicked (what function?)*/}
                     {/*pass this number and the menu item id to the 'AddToOrder' component*/}
@@ -91,8 +92,8 @@ const MenuItem = (props) => {
             }}>
                 {quantity}
             </h4>
-            <Button className='waves-effect waves-light btn-small black white-text ' onClick={addToQuantity}
-                    style={{margin: '10px'}}>
+            <Button id={"quantity-button"} className='waves-effect waves-light btn-small black white-text ' onClick={addToQuantity}
+                    style={{margin: '10px', height: '30px', width: '10px'}}>
                 +
             </Button>
             <Button className='waves-effect waves-light btn-small black white-text ' onClick={ () => addItemToOrder(order)}
