@@ -4,13 +4,14 @@ button {
 
 }
 
-#cssHook {
-    font-weight: bold;
-    letter-spacing: 2px;
-}
+
 
 .box {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+img {
+    display: block;
 }

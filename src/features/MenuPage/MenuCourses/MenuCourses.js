@@ -18,9 +18,6 @@ const MenuCourses = (props) => {
                     <button>Refreshments</button>
                 </Link>
             </div>
-            <div className={"menu-course-items"}>
-                {props.children}
-            </div>
         </div>
     )
 }

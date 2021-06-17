@@ -2,6 +2,7 @@ import React from 'react'
 import {useEffect, useState} from "react";
 import MenuItem from "../MenuItem";
 import ErrorMessage from "../../ErrorMessage";
+import MenuCourses from "../MenuCourses";
 
 const Starters = () => {
 
@@ -30,9 +31,12 @@ const Starters = () => {
         else return ErrorMessage
     }
     return (
-        <main>
-            {displayStarters()}
-        </main>
+        <div>
+            <MenuCourses/>
+            <main>
+                {displayStarters()}
+            </main>
+        </div>
     )
 
 }
