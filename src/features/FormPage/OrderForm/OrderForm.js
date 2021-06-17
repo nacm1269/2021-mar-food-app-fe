@@ -4,6 +4,7 @@ import './OrderForm.css'
 import 'materialize-css';
 import { Button} from 'react-materialize';
 
+
 const OrderForm = () => {
 
     const [name, setName] = useState('');
@@ -18,12 +19,6 @@ const OrderForm = () => {
         'email': email
     }
 
-    // const resetForm = () => {
-    //     setName('')
-    //     setEmail('')
-    //     setFirstLineAddress('')
-    //     setPostcode('')
-    // }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -67,6 +62,8 @@ const OrderForm = () => {
     }
 
     return (
+
+
         <form onSubmit={handleSubmit}>
             <label>
                 Name:
