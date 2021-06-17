@@ -7,7 +7,7 @@ import DishThree from './DishThree.png'
 import Refreshment from './Refreshment.jpg'
 import './MenuCourses.css'
 
-const MenuCourses = (props) => {
+const MenuCourses = () => {
     return (
         <div className={"container"}>
         <div className={"row"}>

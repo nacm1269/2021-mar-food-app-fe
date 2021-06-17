@@ -3,7 +3,6 @@ import { Button} from 'react-materialize';
 import { useState} from "react";
 import './MenuItem.css'
 
-
 const MenuItem = (props) => {
 
     const [menuItemId] = useState (props.menuItemId)
@@ -51,23 +50,28 @@ const MenuItem = (props) => {
         }
         }
 
-    // const removeItemFromOrder = (order) => {
-    //     console.log(order)
-    //     if (order.orderItems[0].quantity !== 0) {
-    //         fetch('http://localhost:3001/orders/removeDish', {
-    //             "method": "PUT",
-    //             "body": JSON.stringify(order),
-    //             "headers":
-    //                 {
-    //                     "content-type": "application/JSON"
-    //                 }
-    //         })
-    //             .then(res => res.json())
-    //             .then((data) => {
-    //                 //add data that is returned to localstorage
-    //             })
-    //     }
-    // }
+    const removeFromOrder = {
+        orderId: orderId,
+        menuItemId: menuItemId,
+    }
+
+    const removeItemFromOrder = (order) => {
+        console.log(order)
+        if (removeFromOrder.menuItemId !== null) {
+            fetch('http://localhost:3001/orders', {
+                "method": "PUT",
+                "body": JSON.stringify(removeFromOrder),
+                "headers":
+                    {
+                        "content-type": "application/JSON"
+                    }
+            })
+                .then(res => res.json())
+                .then((data) => {
+                })
+        }
+    }
+
     return (
         <div className={"items-list"}>
             <img src={props.image} alt={props.name}/>
@@ -101,6 +105,10 @@ const MenuItem = (props) => {
             <Button className='waves-effect waves-light btn-small black white-text ' onClick={ () => addItemToOrder(order)}>
                     {/*// style={{margin: '10px'}}>*/}
                 Add Item To Order
+            </Button>
+            <Button onClick={ () => removeItemFromOrder(removeFromOrder)}
+                    style={{margin: '10px'}}>
+                <i className="material-icons">delete</i>
             </Button>
             {/*<Button className='waves-effect waves-light btn-small black white-text ' onClick={removeItemFromOrder}>*/}
             {/*    Remove Item From Order*/}
