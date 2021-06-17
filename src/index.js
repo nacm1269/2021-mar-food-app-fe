@@ -10,19 +10,20 @@ import Mains from "./features/MenuPage/MenuCourses/Mains/Mains";
 import Desserts from "./features/MenuPage/MenuCourses/Desserts/Desserts";
 import Refreshments from "./features/MenuPage/MenuCourses/Refreshments/Refreshments";
 import OrderForm from "./features/FormPage/OrderForm/OrderForm";
+import LandingPage from "./features/LandingPage/LandingPage";
 
 
 ReactDOM.render(
   <React.StrictMode>
       <Router>
-          <MenuCourses>
-              <Route exact path="/starters" component={Starters}/>
-              <Route exact path="/mains" component={Mains}/>
-              <Route exact path="/desserts" component={Desserts}/>
-              <Route exact path="/refreshments" component={Refreshments}/>
-          </MenuCourses>
+          <Route exact path="/" component={LandingPage}/>
+          <Route exact path="/formpage" component={OrderForm}/>
+          <Route exact path="/menu" component={MenuCourses}/>
+          <Route exact path="/starters" component={Starters}/>
+          <Route exact path="/mains" component={Mains}/>
+          <Route exact path="/desserts" component={Desserts}/>
+          <Route exact path="/refreshments" component={Refreshments}/>
       </Router>
-      <OrderForm />
   </React.StrictMode>,
   document.getElementById('root')
 );

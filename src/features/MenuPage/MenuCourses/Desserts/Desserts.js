@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import MenuItem from "../MenuItem";
 import ErrorMessage from "../../ErrorMessage";
+import MenuCourses from "../MenuCourses";
 
 const Desserts = () => {
 
@@ -31,11 +32,13 @@ const Desserts = () => {
     }
 
     return (
+        <div>
+        <MenuCourses/>
         <main>
             {displayDesserts()}
         </main>
+        </div>
     )
-
 }
 
 export default Desserts

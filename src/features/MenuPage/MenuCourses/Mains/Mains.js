@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import MenuItem from "../MenuItem";
 import ErrorMessage from "../../ErrorMessage";
+import MenuCourses from "../MenuCourses";
 
 const Mains = () => {
 
@@ -29,9 +30,12 @@ const Mains = () => {
     }
 
     return (
-        <main>
-            {displayMains()}
-        </main>
+        <div>
+            <MenuCourses/>
+            <main>
+                {displayMains()}
+            </main>
+        </div>
     )
 }
 
