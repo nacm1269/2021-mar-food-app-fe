@@ -25,8 +25,6 @@ const ReviewOrderItems = () => {
             return orderItems.map(orderItem => {
                 return <EditQuantity key={orderItem.menuItemId} quantity={orderItem.quantity} menuItemId={orderItem.menuItemId} />
             })
-        // }
-        // else return ErrorMessage
     }
     return (
             <main>

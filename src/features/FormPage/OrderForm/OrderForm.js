@@ -81,9 +81,9 @@ const OrderForm = () => {
             Postcode:
                 <input type="text" value={postcode} onChange={onPostcodeChange}/>
             </label>
-            <Link to="/menu">
+            {/*<Link to="/menu">*/}
             <Button type="submit" value="Submit">Confirm Order</Button>
-            </Link>
+            {/*</Link>*/}
         </form>
     );
 }

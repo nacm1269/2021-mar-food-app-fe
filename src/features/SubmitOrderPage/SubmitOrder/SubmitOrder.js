@@ -5,27 +5,34 @@ import { useState} from "react";
 
 const SubmitOrder = () => {
 
-    const [finalOrder, setFinalOrder] = useState({})
+    const [finalOrder, setFinalOrder] = useState('')
     const orderId = localStorage.getItem('orderId')
-    const [isOrderSubmitted, setIsOrderSubmitted] = useState(false)
 
-    const getFinalOrder = async () => {
-        const data = await fetch('http://localhost:3001/orders/' + orderId)
-        return await data.json()
+    const order = {
+        "orderId": orderId
     }
 
-    useEffect(() => {
-        getFinalOrder()
-            .then(json => {
-                console.log(json)
-                setFinalOrder(json)
-            })
-    }, [])
+    const sendFinalOrder = () => {
+        fetch('http://localhost:3001/orders/submitOrder', {
+            "method": "PUT",
+            "body": JSON.stringify(order),
+            "headers":
+                {
+                    "content-type": "application/JSON"
+                }
+        })
+                    .then(res => res.json())
+                    .then((data) => {
+                    })
+        return data
+        }
 
+        const clickOrder = () => {
+            sendFinalOrder()
+            setFinalOrder(data)
+            console.log(finalOrder)
 
-    const displayFinalOrder = () => {
-        setIsOrderSubmitted(true)
-    }
+        }
 
     const orderDetails = () => {
     return (
@@ -33,7 +40,7 @@ const SubmitOrder = () => {
         <h1>Congratulations! Your order has been submitted!</h1>
         <p>Name: {finalOrder.name}</p>
         <p>Email: {finalOrder.email}</p>
-        <p>Postcode: {finalOrder.postcode}</p>
+        <p>Postcode: {finalOrder.deliveryAddress}</p>
         <p>Total cost: {finalOrder.totalPrice}</p>
         </div>
     )
@@ -41,11 +48,12 @@ const SubmitOrder = () => {
 
     const orderDetailButton = () => {
         return (
-            <Button onClick={displayFinalOrder}>Submit Order</Button>
+            <Button onClick={clickOrder}>Submit Order</Button>
         )
     }
 
-    return isOrderSubmitted ? orderDetails() : orderDetailButton()
+
+    return finalOrder.isOrderSubmitted ? orderDetails() : orderDetailButton()
 }
 
 
