@@ -84,10 +84,6 @@ const MenuItem = (props) => {
                 £{props.price.$numberDecimal}
             </h3>
             <Button className='waves-effect waves-light btn-small black white-text' onClick={removeFromQuantity}>
-                    {/*onClick we want to take the menu item's id from props*/}
-                    {/*count the amount of times this button is clicked (what function?)*/}
-                    {/*pass this number and the menu item id to the 'AddToOrder' component*/}
-                    {/*store the menu item id and clicks as a quantity in an object that will populate the 'order items' array*/}
                 -
             </Button>
             <h4 style={{
@@ -107,9 +103,6 @@ const MenuItem = (props) => {
                     style={{margin: '10px'}}>
                 <i className="material-icons">delete</i>
             </Button>
-            {/*<Button className='waves-effect waves-light btn-small black white-text ' onClick={removeItemFromOrder}>*/}
-            {/*    Remove Item From Order*/}
-            {/*</Button>*/}
         </div>
     )
 }

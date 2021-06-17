@@ -12,8 +12,6 @@ import Refreshments from "./features/MenuPage/MenuCourses/Refreshments/Refreshme
 import OrderForm from "./features/FormPage/OrderForm/OrderForm";
 import LandingPage from "./features/LandingPage/LandingPage";
 import ReviewOrderItems from "./features/SubmitOrderPage/ReviewOrderItems/ReviewOrderItems";
-import EditQuantity from "./features/SubmitOrderPage/EditQuantity/EditQuantity";
-
 
 ReactDOM.render(
   <React.StrictMode>

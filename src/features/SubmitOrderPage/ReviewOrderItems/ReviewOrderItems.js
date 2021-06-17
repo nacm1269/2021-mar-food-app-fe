@@ -1,7 +1,7 @@
 import React from 'react'
 import {useEffect, useState} from "react";
-import ErrorMessage from "../../MenuPage/ErrorMessage";
 import EditQuantity from "../EditQuantity/EditQuantity";
+import SubmitOrder from "../SubmitOrder/SubmitOrder";
 
 const ReviewOrderItems = () => {
 
@@ -10,7 +10,6 @@ const ReviewOrderItems = () => {
 
     const getOrder = async () => {
         const data = await fetch("http://localhost:3001/orders/" + orderId)
-        console.log(data)
         return await data.json()
     }
 
@@ -32,6 +31,7 @@ const ReviewOrderItems = () => {
     return (
             <main>
                 {displayOrderItems()}
+                {SubmitOrder()}
             </main>
     )
 }

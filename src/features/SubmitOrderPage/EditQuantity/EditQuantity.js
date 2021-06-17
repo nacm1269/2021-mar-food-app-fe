@@ -10,7 +10,6 @@ const EditQuantity = (props) => {
 
     const getDish = async () => {
         const data = await fetch("http://localhost:3001/dishes/individualDishes/" + menuItemId)
-        console.log(data)
         return await data.json()
     }
 
@@ -58,6 +57,7 @@ const EditQuantity = (props) => {
             console.error('There was an error!');
         }
     }
+
     return (
         <div>
             <h1>{orderItem.name}</h1>
