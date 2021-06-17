@@ -1,0 +1,10 @@
+form {
+    padding: 20px;
+    margin: 60px;
+}
+
+Button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
