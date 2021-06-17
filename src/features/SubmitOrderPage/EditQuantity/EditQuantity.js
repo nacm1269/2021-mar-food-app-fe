@@ -16,8 +16,8 @@ const EditQuantity = () => {
     useEffect(() => {
         getStarters()
             .then(json => {
-                setMenuItemId(data.data[0].orderItems[0].menuItemId)
-                setQuantity(data.data[0].orderItems[0].quantity)
+                setMenuItemId(json.data[0].orderItems[0].menuItemId)
+                setQuantity(json.data[0].orderItems[0].quantity)
             })
     }, [])
 

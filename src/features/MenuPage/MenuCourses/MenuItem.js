@@ -51,12 +51,17 @@ const MenuItem = (props) => {
         }
         }
 
+    const removeFromOrder = {
+        orderId: orderId,
+        menuItemId: menuItemId,
+    }
+
     const removeItemFromOrder = (order) => {
         console.log(order)
-        if (order.orderItems[0].quantity !== 0) {
+        if (removeFromOrder.menuItemId !== null) {
             fetch('http://localhost:3001/orders', {
                 "method": "PUT",
-                "body": JSON.stringify(order),
+                "body": JSON.stringify(removeFromOrder),
                 "headers":
                     {
                         "content-type": "application/JSON"
@@ -100,10 +105,10 @@ const MenuItem = (props) => {
                     style={{margin: '10px'}}>
                 Add Item To Order
             </Button>
-            <Link onClick={ () => removeItemFromOrder(order)}
+            <Button onClick={ () => removeItemFromOrder(removeFromOrder)}
                     style={{margin: '10px'}}>
                 <i className="material-icons">delete</i>
-            </Link>
+            </Button>
             {/*<Button className='waves-effect waves-light btn-small black white-text ' onClick={removeItemFromOrder}>*/}
             {/*    Remove Item From Order*/}
             {/*</Button>*/}
