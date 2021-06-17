@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 
 const OrderForm = () => {
 
@@ -80,7 +81,9 @@ const OrderForm = () => {
             Postcode:
                 <input type="text" value={postcode} onChange={onPostcodeChange}/>
             </label>
+            <Link to="/menu">
             <button type="submit" value="Submit">Confirm Order</button>
+            </Link>
         </form>
     );
 }

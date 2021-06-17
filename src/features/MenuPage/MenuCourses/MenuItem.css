@@ -1,0 +1,15 @@
+.items-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#quantity-button {
+    display: flex;
+    flex-direction: row;
+}
+
+.quantityButtons {
+    display: flex;
+    flex-direction: row;
+}
