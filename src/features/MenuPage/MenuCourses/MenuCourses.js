@@ -6,6 +6,7 @@ import DishTwo from './DishTwo.png'
 import DishThree from './DishThree.png'
 import Refreshment from './Refreshment.jpg'
 import './MenuCourses.css'
+import {Button} from "react-materialize";
 
 const MenuCourses = () => {
     return (
@@ -53,7 +54,8 @@ const MenuCourses = () => {
             </div>
             </div>
         </div>
-    )
+
+        )
 }
 
 export default MenuCourses

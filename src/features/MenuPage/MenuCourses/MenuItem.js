@@ -1,6 +1,6 @@
 import 'materialize-css';
 import { Button} from 'react-materialize';
-import { useState} from "react";
+import React, { useState} from "react";
 import './MenuItem.css'
 
 const MenuItem = (props) => {
@@ -114,6 +114,7 @@ const MenuItem = (props) => {
             {/*    Remove Item From Order*/}
             {/*</Button>*/}
                 </div>
+            <Button>Submit Order</Button>
         </div>
 
     )
