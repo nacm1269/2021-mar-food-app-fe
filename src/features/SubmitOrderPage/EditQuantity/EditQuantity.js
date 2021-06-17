@@ -7,17 +7,18 @@ const EditQuantity = () => {
     const [quantity, setQuantity] = useState(0)
     const orderId = localStorage.getItem('orderId')
 
-    const getStarters = async () => {
+    const getOrder = async () => {
 
-        const data = await fetch(`http://localhost:3001/orders/{orderId}`)
+        const data = await fetch("http://localhost:3001/orders/" + orderId)
+        console.log(data)
         return await data.json()
     }
 
     useEffect(() => {
-        getStarters()
+        getOrder()
             .then(json => {
-                setMenuItemId(json.data[0].orderItems[0].menuItemId)
-                setQuantity(json.data[0].orderItems[0].quantity)
+                setMenuItemId(json.orderItems[0].menuItemId)
+                setQuantity(json.orderItems[0].quantity)
             })
     }, [])
 
@@ -33,18 +34,14 @@ const EditQuantity = () => {
     }
 
      const editedOrder = {
-        "orderId": orderId,
-        "orderItems": [
-        {
-            "menuItemId": menuItemId,
-            "quantity": quantity
-        }
-                    ]
+         "orderId": orderId,
+         "menuItemId": menuItemId,
+         "quantity": quantity
     }
 
     const editOrderQuantity = async (editedOrder) => {
         console.log(editedOrder)
-        if (editedOrder.orderItems[0].quantity !== 0) {
+        if (editedOrder.quantity !== 0) {
             await fetch('http://localhost:3001/orders/editQuantity', {
                 "method": "PUT",
                 "body": JSON.stringify(editedOrder),
@@ -64,28 +61,26 @@ const EditQuantity = () => {
     }
     return (
         <div>
-    <Button className='waves-effect waves-light btn-small black white-text ' onClick={incrementQuantity}
-            style={{margin: '10px'}}>
-        +
-    </Button>
+            <Button className='waves-effect waves-light btn-small black white-text ' onClick={decrementQuantity}
+                    style={{margin: '10px'}}>
+                -
+            </Button>
+            <h4 style={{
+                display: 'inline'
+            }}>
+                {quantity}
+            </h4>
+            <Button className='waves-effect waves-light btn-small black white-text ' onClick={incrementQuantity}
+                    style={{margin: '10px'}}>
+                +
+            </Button>
 
-        <h4 style={{
-            display: 'inline'
-        }}>
-            {quantity}
-        </h4>
-
-        <Button className='waves-effect waves-light btn-small black white-text ' onClick={decrementQuantity}
-                style={{margin: '10px'}}>
-            -
-        </Button>
-
-    <Button className='waves-effect waves-light btn-small black white-text ' onClick={ () => editOrderQuantity(editedOrder)}
-            style={{margin: '10px'}}>
-        Confirm new quantity
-    </Button>
-        </div>
-    )
+            <Button className='waves-effect waves-light btn-small black white-text ' onClick={ () => editOrderQuantity(editedOrder)}
+                    style={{margin: '10px'}}>
+                Confirm new quantity
+            </Button>
+                </div>
+            )
 
 }
 
