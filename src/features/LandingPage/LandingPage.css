@@ -1,10 +1,6 @@
-button {
-    width: 300px;
-    height: 200px;
-
+.btn {
+    border-radius: 5px;
 }
-
-
 
 .box {
     display: flex;
@@ -12,6 +8,7 @@ button {
     align-items: center;
 }
 
-img {
-    display: block;
+
+#landing-button {
+    color: red;
 }

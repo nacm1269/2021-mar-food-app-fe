@@ -1,12 +1,10 @@
-
-// White text box enter site
-
 import React from 'react'
 import 'materialize-css';
 import { Button} from 'react-materialize';
 import {Link} from 'react-router-dom'
 import restaurantImage from './restaurantImage.jpg'
 import balogo1 from './balogo1.png'
+import bonLogo from '../../Bon-logo.png'
 import './LandingPage.css'
 
 const LandingPage = () => {
@@ -18,24 +16,23 @@ const LandingPage = () => {
                  height: "100vh",
                  width: "100vw",
                  alt: "restaurant hanging lights",
-                 backgroundBlendMode: "multiply"
              }}>
             <div>
                 <img className={'responsive-img'} alt='logo' style={{
-                    width: "40vh",
+                    width: "50vh",
                     alt: "bon appétit logo"
-                }} src={balogo1}/>
+                }} src={bonLogo}/>
             </div>
             <div style={{
                 position:"absolute",
                 bottom:"3%"}
             }>
                 <Link to="/formpage">
-                    <Button className='waves-effect waves-light btn white black-text' style={{
+                    <Button className='waves-effect waves-light btn-small white black-text' id='landing-button' style={{
                         fontWeight: "bold",
                         letterSpacing: "2px",
-                        width: "15vw",
-                        height: "5vw",
+                        width: "10vw",
+                        height: "2vw",
                     }}>
                         Enter Site
                     </Button>
