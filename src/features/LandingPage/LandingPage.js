@@ -22,18 +22,17 @@ const LandingPage = () => {
                     width: "50vh",
                     alt: "bon appétit logo"
                 }} src={bonLogo}/>
-                <h5 className={'landing-tagline'}>Michelin-starred food delivered to your door</h5>
             </div>
             <div style={{
                 position:"absolute",
                 bottom:"3%"}
             }>
                 <Link to="/formpage">
-                    <Button className='waves-effect waves-light btn white black-text' style={{
+                    <Button className='waves-effect waves-light btn-small white black-text' id='landing-button' style={{
                         fontWeight: "bold",
                         letterSpacing: "2px",
-                        width: "15vw",
-                        height: "5vw",
+                        width: "10vw",
+                        height: "2vw",
                     }}>
                         Enter Site
                     </Button>
