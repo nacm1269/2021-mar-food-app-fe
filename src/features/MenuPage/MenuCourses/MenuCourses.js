@@ -14,6 +14,7 @@ const MenuCourses = (props) => {
             <div className={"col s3"}>
                 <Link to="/starters">
                     <img className={"responsive-img"} style={{
+                        padding: "25px",
                         width: "40vh",
                         alt: "image of a starter"
                     }} src={DishOne} />
@@ -23,6 +24,7 @@ const MenuCourses = (props) => {
             <div className={"col s3"}>
                 <Link to="/mains">
                     <img className={"responsive-img"} style={{
+                        padding: "25px",
                         width: "40vh",
                         alt: "image of a main meal"
                     }} src={DishTwo} />
@@ -32,6 +34,7 @@ const MenuCourses = (props) => {
             <div className={"col s3"}>
                 <Link to="/desserts">
                     <img className={"responsive-img"} style={{
+                        padding: "25px",
                         width: "40vh",
                         alt: "image of a dessert"
                     }} src={DishThree} />
@@ -41,6 +44,7 @@ const MenuCourses = (props) => {
             <div className={"col s3"}>
                 <Link to="/refreshments">
                     <img className={"responsive-img"} style={{
+                        padding: "25px",
                         width: "40vh",
                         alt: "image of a cocktail"
                     }} src={Refreshment} />
