@@ -21,7 +21,7 @@ const LandingPage = () => {
                  backgroundBlendMode: "multiply"
              }}>
             <div>
-                <img className={'responsive-img'} style={{
+                <img className={'responsive-img'} alt='logo' style={{
                     width: "40vh",
                     alt: "bon appétit logo"
                 }} src={balogo1}/>
