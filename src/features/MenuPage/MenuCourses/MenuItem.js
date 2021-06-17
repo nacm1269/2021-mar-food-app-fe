@@ -67,7 +67,6 @@ const MenuItem = (props) => {
     //             })
     //     }
     // }
-
     return (
         <div>
             <img src={props.image} alt={props.name}/>
