@@ -11,6 +11,7 @@ import Desserts from "./features/MenuPage/MenuCourses/Desserts/Desserts";
 import Refreshments from "./features/MenuPage/MenuCourses/Refreshments/Refreshments";
 import OrderForm from "./features/FormPage/OrderForm/OrderForm";
 import LandingPage from "./features/LandingPage/LandingPage";
+import ReviewOrderItems from "./features/SubmitOrderPage/ReviewOrderItems/ReviewOrderItems";
 import EditQuantity from "./features/SubmitOrderPage/EditQuantity/EditQuantity";
 
 
@@ -24,7 +25,7 @@ ReactDOM.render(
           <Route exact path="/mains" component={Mains}/>
           <Route exact path="/desserts" component={Desserts}/>
           <Route exact path="/refreshments" component={Refreshments}/>
-          <Route exact path="/reviewOrder" component={EditQuantity}/>
+          <Route exact path="/reviewOrder" component={ReviewOrderItems}/>
       </Router>
   </React.StrictMode>,
   document.getElementById('root')

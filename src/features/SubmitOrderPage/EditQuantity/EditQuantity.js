@@ -2,23 +2,22 @@ import React from 'react'
 import {useEffect, useState} from "react";
 import {Button} from "react-materialize";
 
-const EditQuantity = () => {
-    const [menuItemId, setMenuItemId] = useState ('')
-    const [quantity, setQuantity] = useState(0)
+const EditQuantity = (props) => {
+    const menuItemId = props.menuItemId
+    const [quantity, setQuantity] = useState(props.quantity)
+    const [orderItem, setOrderItem] = useState('')
     const orderId = localStorage.getItem('orderId')
 
-    const getOrder = async () => {
-
-        const data = await fetch("http://localhost:3001/orders/" + orderId)
+    const getDish = async () => {
+        const data = await fetch("http://localhost:3001/dishes/individualDishes/" + menuItemId)
         console.log(data)
         return await data.json()
     }
 
     useEffect(() => {
-        getOrder()
+        getDish()
             .then(json => {
-                setMenuItemId(json.orderItems[0].menuItemId)
-                setQuantity(json.orderItems[0].quantity)
+                setOrderItem(json.data)
             })
     }, [])
 
@@ -61,6 +60,7 @@ const EditQuantity = () => {
     }
     return (
         <div>
+            <h1>{orderItem.name}</h1>
             <Button className='waves-effect waves-light btn-small black white-text ' onClick={decrementQuantity}
                     style={{margin: '10px'}}>
                 -
