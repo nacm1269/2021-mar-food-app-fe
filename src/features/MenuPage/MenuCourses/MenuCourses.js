@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const MenuCourses = (props) => {
+const MenuCourses = () => {
     return (
         <div className={"menu-dropdown"}>
             <div>
