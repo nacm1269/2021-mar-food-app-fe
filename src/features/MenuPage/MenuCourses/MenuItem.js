@@ -76,32 +76,31 @@ const MenuItem = (props) => {
     <div className="container">
         <div className="row">
             <div className={"items-list"}>
-            <img src={props.image} alt={props.name}/>
-            <h1>
-                {props.name}
-            </h1>
-            <h2>
-                {props.description}
-            </h2>
             <h3>
-                £{props.price.$numberDecimal}
+                {props.name}
             </h3>
+            <h6>
+                {props.description}
+            </h6>
+            <p>
+                £{props.price.$numberDecimal}
+            </p>
                 <div className={"quantityButtons"}>
             <Button id={"quantity-button"} className='waves-effect waves-light btn-small black white-text' onClick={removeFromQuantity} style={{margin: '10px', height: '30px', width: '10px'}}>
                 -
             </Button>
                     <div> </div>
-            <h4>
+            <p>
                 {quantity}
-            </h4>
-            <Button id={"quantity-button"} className='waves-effect waves-light btn-small black white-text ' onClick={addToQuantity} style={{margin: '10px', height: '30px', width: '10px'}}>
+            </p>
+            <Button id={"quantity-button"} className='waves-effect waves-light btn-small white-text ' onClick={addToQuantity} style={{margin: '10px', height: '30px', width: '10px'}}>
 
                 +
             </Button>
             <Button className='waves-effect waves-light btn-small black white-text ' onClick={ () => addItemToOrder(order)} style={{margin: '10px'}}>
                 Add Item To Order
             </Button>
-            <Button onClick={ () => removeItemFromOrder(removeFromOrder)}
+            <Button className={'red'} onClick={ () => removeItemFromOrder(removeFromOrder)}
                     style={{margin: '10px'}}>
                 <i className="material-icons">delete</i>
             </Button>

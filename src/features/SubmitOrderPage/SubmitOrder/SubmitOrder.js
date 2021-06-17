@@ -1,7 +1,8 @@
 import React from 'react'
 import 'materialize-css';
-import { Button} from 'react-materialize';
+import { Card } from 'react-materialize';
 import { useState, useEffect } from "react";
+import './SubmitOrder.css'
 
 const SubmitOrder = () => {
 
@@ -27,12 +28,17 @@ const SubmitOrder = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Congratulations! Your order has been submitted!</h1>
-            <p>Name: {finalOrder.name}</p>
-            <p>Email: {finalOrder.email}</p>
-            <p>Postcode: {finalOrder.postcode}</p>
-            <p>Total cost: {finalOrder.totalPrice}</p>
+        <div className={"container"}>
+            <div className={'card v-align center-align'}>
+                <h3>Your order has been submitted.</h3>
+                <h5>We hope you enjoy your food.</h5>
+                <div>
+                    <p>Name: {finalOrder.name}</p>
+                    <p>Email: {finalOrder.email}</p>
+                    <p>Postcode: {finalOrder.postcode}</p>
+                    <p>Total cost: £{finalOrder.totalPrice}</p>
+                </div>
+            </div>
         </div>
     )
 }

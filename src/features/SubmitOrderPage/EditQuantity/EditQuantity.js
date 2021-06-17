@@ -60,21 +60,20 @@ const EditQuantity = (props) => {
 
     return (
         <div>
-            <h1>{orderItem.name}</h1>
+            <h4>{orderItem.name}</h4>
             <Button className='waves-effect waves-light btn-small black white-text ' onClick={decrementQuantity}
                     style={{margin: '10px'}}>
                 -
             </Button>
-            <h4 style={{
+            <p style={{
                 display: 'inline'
             }}>
                 {quantity}
-            </h4>
+            </p>
             <Button className='waves-effect waves-light btn-small black white-text ' onClick={incrementQuantity}
                     style={{margin: '10px'}}>
                 +
             </Button>
-
             <Button className='waves-effect waves-light btn-small black white-text ' onClick={ () => editOrderQuantity(editedOrder)}
                     style={{margin: '10px'}}>
                 Confirm new quantity

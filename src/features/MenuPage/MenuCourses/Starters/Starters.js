@@ -34,10 +34,9 @@ const Starters = () => {
     return (
         <div>
             <MenuCourses/>
-            <main>
+            <main className={"container center"}>
                 {displayStarters()}
             </main>
-            <Button className="waves-light btn-small black white-text">Review Order</Button>
         </div>
     )
 

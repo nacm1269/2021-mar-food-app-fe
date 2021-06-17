@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './OrderForm.css'
 import 'materialize-css';
 import {Button} from "react-materialize";
-
 
 const OrderForm = () => {
 
@@ -11,7 +10,6 @@ const OrderForm = () => {
     const [email, setEmail] = useState('');
     const [firstLineAddress, setFirstLineAddress] = useState('');
     const [postcode, setPostcode] = useState('');
-    const navigate = useNavigate()
 
     const formData = {
         'name': name,
@@ -21,8 +19,8 @@ const OrderForm = () => {
     }
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = () => {
+        // e.preventDefault()
         fetch('http://localhost:3001/orders', {
                 "method": "POST",
                 "body": JSON.stringify(formData),
@@ -41,10 +39,6 @@ const OrderForm = () => {
                     console.error('There was an error!');
                 }
             })
-            // .catch(() => {
-            //     alert('There was an error submitting your order, please try again.')
-            //     console.error('There was an error!');
-            // })
     }
 
     const onNameChange = (e) => {
@@ -60,39 +54,32 @@ const OrderForm = () => {
     }
     const onPostcodeChange = (e) => {
         setPostcode(e.target.value)
-
-        const LinkButton = () => {
-            return (
-                <button onClick={ () =>
-                    handleSubmit()
-                    useNavigate("/home") }>
-                    Confirm Order
-                </button>
-            );
-        }
     }
 
     return (
-
-
-        <form>
-            <label>
-                Name:
-                <input type="text" value={name} onChange={onNameChange}/>
-            </label>
-            <label>
-                Email:
-                <input type="email" value={email} onChange={onEmailChange}/>
-            </label>
-            <label>
-                First Line of Address:
-                <input type="text" value={firstLineAddress} onChange={onFirstLineAddressChange}/>
-            </label>
-            <label>
-            Postcode:
-                <input type="text" value={postcode} onChange={onPostcodeChange}/>
-            </label>
-        </form>
+        <div className={'container'}>
+            <form>
+                <h5>In order to ensure our food is enjoyed at it's best. We only accept orders within a 3 mile radius.</h5>
+                <h5>Please fill in your details to continue.</h5>
+                <label>
+                    Name:
+                    <input type="text" value={name} onChange={onNameChange}/>
+                </label>
+                <label>
+                    Email:
+                    <input type="email" value={email} onChange={onEmailChange}/>
+                </label>
+                <label>
+                    First Line of Address:
+                    <input type="text" value={firstLineAddress} onChange={onFirstLineAddressChange}/>
+                </label>
+                <label>
+                Postcode:
+                    <input type="text" value={postcode} onChange={onPostcodeChange}/>
+                </label>
+                <Link to="/menu" className={'btn'} onClick={() => {handleSubmit()}}>CONTINUE</Link>
+            </form>
+        </div>
     )
 }
 

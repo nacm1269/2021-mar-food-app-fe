@@ -38,7 +38,6 @@ const Desserts = () => {
         <main>
             {displayDesserts()}
         </main>
-            <Button className="waves-light btn-small black white-text">Review Order</Button>
         </div>
     )
 }

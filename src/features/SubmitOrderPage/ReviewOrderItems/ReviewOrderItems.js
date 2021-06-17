@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import EditQuantity from "../EditQuantity/EditQuantity";
 import SubmitOrder from "../SubmitOrder/SubmitOrder";
 import { Link } from 'react-router-dom'
+import './ReviewOrderItems.css'
 
 const ReviewOrderItems = () => {
 
@@ -26,13 +27,13 @@ const ReviewOrderItems = () => {
                 return <EditQuantity key={orderItem.menuItemId} quantity={orderItem.quantity} menuItemId={orderItem.menuItemId} />
             })
     }
-
     return (
-            <main>
+            <main className={'container center-align'}>
+                <h4>Please check your order before submitting</h4>
                 {displayOrderItems()}
-            <Link to="/submittedOrder">
-                <button>Submit Order</button>
-            </Link>
+                <Link to="/submittedOrder">
+                    <button className={'btn submit-order-button'}>SUBMIT ORDER</button>
+                </Link>
             </main>
     )
 }

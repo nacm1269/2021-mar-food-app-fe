@@ -34,7 +34,7 @@ const MenuCourses = () => {
                 <Link to="/desserts">
                     <img className={"responsive-img"} style={{
                         padding: "25px",
-                        width: "40vh",
+                        width: "50vh",
                         alt: "image of a dessert"
                     }} src={DishThree} />
                 </Link>
@@ -48,6 +48,23 @@ const MenuCourses = () => {
                     }} src={Refreshment} />
                 </Link>
             </div>
+            </div>
+            <div className={"row"}>
+                <div className={"col s-3 course-names"}>
+                    <h4>Starters</h4>
+                </div>
+                <div className={"col s-3 course-names"}>
+                    <h4>Mains</h4>
+                </div>
+                <div className={"col s-3 course-names"}>
+                    <h4>Desserts</h4>
+                </div>
+                <div className={"col s-3 course-names"}>
+                    <h4>Refreshments</h4>
+                </div>
+            </div>
+            <div className={'row'}>
+                <Link className={"waves-light btn-small center-align review-order-button"} to={'/reviewOrder'}>REVIEW ORDER</Link>
             </div>
         </div>
 
