@@ -114,7 +114,7 @@ const MenuItem = (props) => {
             {/*    Remove Item From Order*/}
             {/*</Button>*/}
                 </div>
-            <Button>Submit Order</Button>
+            <Button>Review Order</Button>
         </div>
 
     )
