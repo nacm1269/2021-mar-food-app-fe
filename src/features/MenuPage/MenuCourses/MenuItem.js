@@ -1,6 +1,7 @@
 import 'materialize-css';
 import { Button} from 'react-materialize';
 import { useState} from "react";
+import {Link} from 'react-router-dom'
 
 
 const MenuItem = (props) => {
@@ -50,23 +51,22 @@ const MenuItem = (props) => {
         }
         }
 
-    // const removeItemFromOrder = (order) => {
-    //     console.log(order)
-    //     if (order.orderItems[0].quantity !== 0) {
-    //         fetch('http://localhost:3001/orders/removeDish', {
-    //             "method": "PUT",
-    //             "body": JSON.stringify(order),
-    //             "headers":
-    //                 {
-    //                     "content-type": "application/JSON"
-    //                 }
-    //         })
-    //             .then(res => res.json())
-    //             .then((data) => {
-    //                 //add data that is returned to localstorage
-    //             })
-    //     }
-    // }
+    const removeItemFromOrder = (order) => {
+        console.log(order)
+        if (order.orderItems[0].quantity !== 0) {
+            fetch('http://localhost:3001/orders', {
+                "method": "PUT",
+                "body": JSON.stringify(order),
+                "headers":
+                    {
+                        "content-type": "application/JSON"
+                    }
+            })
+                .then(res => res.json())
+                .then((data) => {
+                })
+        }
+    }
 
     return (
         <div>
@@ -100,6 +100,10 @@ const MenuItem = (props) => {
                     style={{margin: '10px'}}>
                 Add Item To Order
             </Button>
+            <Link onClick={ () => removeItemFromOrder(order)}
+                    style={{margin: '10px'}}>
+                <i className="material-icons">delete</i>
+            </Link>
             {/*<Button className='waves-effect waves-light btn-small black white-text ' onClick={removeItemFromOrder}>*/}
             {/*    Remove Item From Order*/}
             {/*</Button>*/}
