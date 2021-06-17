@@ -12,6 +12,7 @@ import Refreshments from "./features/MenuPage/MenuCourses/Refreshments/Refreshme
 import OrderForm from "./features/FormPage/OrderForm/OrderForm";
 import LandingPage from "./features/LandingPage/LandingPage";
 import ReviewOrderItems from "./features/SubmitOrderPage/ReviewOrderItems/ReviewOrderItems";
+import SubmitOrder from "./features/SubmitOrderPage/SubmitOrder/SubmitOrder";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,6 +25,7 @@ ReactDOM.render(
           <Route exact path="/desserts" component={Desserts}/>
           <Route exact path="/refreshments" component={Refreshments}/>
           <Route exact path="/reviewOrder" component={ReviewOrderItems}/>
+          <Route exact path="/submittedOrder" component={SubmitOrder} />
       </Router>
   </React.StrictMode>,
   document.getElementById('root')

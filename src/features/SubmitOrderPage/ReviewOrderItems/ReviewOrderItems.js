@@ -2,6 +2,7 @@ import React from 'react'
 import {useEffect, useState} from "react";
 import EditQuantity from "../EditQuantity/EditQuantity";
 import SubmitOrder from "../SubmitOrder/SubmitOrder";
+import { Link } from 'react-router-dom'
 
 const ReviewOrderItems = () => {
 
@@ -21,15 +22,17 @@ const ReviewOrderItems = () => {
     }, [])
 
     const displayOrderItems = () => {
-        // if (orderItems.length > 0) {
             return orderItems.map(orderItem => {
                 return <EditQuantity key={orderItem.menuItemId} quantity={orderItem.quantity} menuItemId={orderItem.menuItemId} />
             })
     }
+
     return (
             <main>
                 {displayOrderItems()}
-                {SubmitOrder()}
+            <Link to="/submittedOrder">
+                <button>Submit Order</button>
+            </Link>
             </main>
     )
 }

@@ -79,7 +79,7 @@ const EditQuantity = (props) => {
                     style={{margin: '10px'}}>
                 Confirm new quantity
             </Button>
-                </div>
+        </div>
             )
 
 }

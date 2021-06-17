@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import 'materialize-css';
 import { Button} from 'react-materialize';
-import { useState} from "react";
+import { useState, useEffect } from "react";
 
 const SubmitOrder = () => {
 
@@ -12,48 +12,29 @@ const SubmitOrder = () => {
         "orderId": orderId
     }
 
-    const sendFinalOrder = () => {
-        fetch('http://localhost:3001/orders/submitOrder', {
-            "method": "PUT",
-            "body": JSON.stringify(order),
-            "headers":
-                {
-                    "content-type": "application/JSON"
-                }
-        })
-                    .then(res => res.json())
-                    .then((data) => {
-                    })
-        return data
+    useEffect(() => {
+        async function updatePost() {
+            const requestOptions = {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/JSON' },
+                body: JSON.stringify(order)
+            };
+            const response = await fetch('http://localhost:3001/orders/submitOrder', requestOptions);
+            const data = await response.json();
+            setFinalOrder(data.data)
         }
+        updatePost();
+    }, []);
 
-        const clickOrder = () => {
-            sendFinalOrder()
-            setFinalOrder(data)
-            console.log(finalOrder)
-
-        }
-
-    const orderDetails = () => {
     return (
         <div>
-        <h1>Congratulations! Your order has been submitted!</h1>
-        <p>Name: {finalOrder.name}</p>
-        <p>Email: {finalOrder.email}</p>
-        <p>Postcode: {finalOrder.deliveryAddress}</p>
-        <p>Total cost: {finalOrder.totalPrice}</p>
+            <h1>Congratulations! Your order has been submitted!</h1>
+            <p>Name: {finalOrder.name}</p>
+            <p>Email: {finalOrder.email}</p>
+            <p>Postcode: {finalOrder.postcode}</p>
+            <p>Total cost: {finalOrder.totalPrice}</p>
         </div>
     )
-    }
-
-    const orderDetailButton = () => {
-        return (
-            <Button onClick={clickOrder}>Submit Order</Button>
-        )
-    }
-
-
-    return finalOrder.isOrderSubmitted ? orderDetails() : orderDetailButton()
 }
 
 
