@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './OrderForm.css'
 import 'materialize-css';
-import { Button} from 'react-materialize';
+import {Button} from "react-materialize";
 
 
 const OrderForm = () => {
@@ -11,6 +11,7 @@ const OrderForm = () => {
     const [email, setEmail] = useState('');
     const [firstLineAddress, setFirstLineAddress] = useState('');
     const [postcode, setPostcode] = useState('');
+    const navigate = useNavigate()
 
     const formData = {
         'name': name,
@@ -59,12 +60,22 @@ const OrderForm = () => {
     }
     const onPostcodeChange = (e) => {
         setPostcode(e.target.value)
+
+        const LinkButton = () => {
+            return (
+                <button onClick={ () =>
+                    handleSubmit()
+                    useNavigate("/home") }>
+                    Confirm Order
+                </button>
+            );
+        }
     }
 
     return (
 
 
-        <form onSubmit={handleSubmit}>
+        <form>
             <label>
                 Name:
                 <input type="text" value={name} onChange={onNameChange}/>
@@ -81,11 +92,8 @@ const OrderForm = () => {
             Postcode:
                 <input type="text" value={postcode} onChange={onPostcodeChange}/>
             </label>
-            {/*<Link to="/menu">*/}
-            <Button type="submit" value="Submit">Confirm Order</Button>
-            {/*</Link>*/}
         </form>
-    );
+    )
 }
 
 export default OrderForm
