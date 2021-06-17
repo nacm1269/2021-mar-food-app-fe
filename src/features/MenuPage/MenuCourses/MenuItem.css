@@ -8,3 +8,8 @@
     display: flex;
     flex-direction: row;
 }
+
+.quantityButtons {
+    display: flex;
+    flex-direction: row;
+}
