@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import {Link} from 'react-router-dom'
+import './OrderForm.css'
+import 'materialize-css';
+import { Button} from 'react-materialize';
 
 const OrderForm = () => {
 
@@ -82,7 +85,7 @@ const OrderForm = () => {
                 <input type="text" value={postcode} onChange={onPostcodeChange}/>
             </label>
             <Link to="/menu">
-            <button type="submit" value="Submit">Confirm Order</button>
+            <Button type="submit" value="Submit">Confirm Order</Button>
             </Link>
         </form>
     );

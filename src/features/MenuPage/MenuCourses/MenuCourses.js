@@ -19,7 +19,6 @@ const MenuCourses = () => {
                         width: "40vh",
                         alt: "image of a starter"
                     }} src={DishOne} />
-                    {/*<button>Starters</button>*/}
                 </Link>
             </div>
             <div className={"col s3"}>
@@ -29,7 +28,6 @@ const MenuCourses = () => {
                         width: "40vh",
                         alt: "image of a main meal"
                     }} src={DishTwo} />
-                    {/*<button>Mains</button>*/}
                 </Link>
             </div>
             <div className={"col s3"}>
@@ -39,7 +37,6 @@ const MenuCourses = () => {
                         width: "40vh",
                         alt: "image of a dessert"
                     }} src={DishThree} />
-                    {/*<button>Desserts</button>*/}
                 </Link>
             </div>
             <div className={"col s3"}>
@@ -49,7 +46,6 @@ const MenuCourses = () => {
                         width: "40vh",
                         alt: "image of a cocktail"
                     }} src={Refreshment} />
-                    {/*<button>Refreshments</button>*/}
                 </Link>
             </div>
             </div>
