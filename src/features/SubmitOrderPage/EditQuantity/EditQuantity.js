@@ -37,6 +37,28 @@ const EditQuantity = (props) => {
          "quantity": quantity
     }
 
+    const removeFromOrder = {
+        orderId: orderId,
+        menuItemId: menuItemId,
+    }
+
+    const removeItemFromOrder = (order) => {
+        console.log(order)
+        if (removeFromOrder.menuItemId !== null) {
+            fetch('http://localhost:3001/orders', {
+                "method": "PUT",
+                "body": JSON.stringify(removeFromOrder),
+                "headers":
+                    {
+                        "content-type": "application/JSON"
+                    }
+            })
+                .then(res => res.json())
+                .then((data) => {
+                })
+        }
+    }
+
     const editOrderQuantity = async (editedOrder) => {
         console.log(editedOrder)
         if (editedOrder.quantity !== 0) {
@@ -73,6 +95,10 @@ const EditQuantity = (props) => {
             <Button className='waves-effect waves-light btn-small black white-text ' onClick={incrementQuantity}
                     style={{margin: '10px'}}>
                 +
+            </Button>
+            <Button className={'red'} onClick={ () => removeItemFromOrder(removeFromOrder)}
+                    style={{margin: '10px'}}>
+                <i className="material-icons">delete</i>
             </Button>
             <Button className='waves-effect waves-light btn-small black white-text ' onClick={ () => editOrderQuantity(editedOrder)}
                     style={{margin: '10px'}}>
