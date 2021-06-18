@@ -1,7 +1,10 @@
 import React from 'react'
 import {useEffect, useState} from "react";
-import ErrorMessage from "../../MenuPage/ErrorMessage";
 import EditQuantity from "../EditQuantity/EditQuantity";
+import SubmitOrder from "../SubmitOrder/SubmitOrder";
+import { Link } from 'react-router-dom'
+import './ReviewOrderItems.css'
+import bonLogo from '../../../Bon-logo.png'
 
 const ReviewOrderItems = () => {
 
@@ -10,7 +13,6 @@ const ReviewOrderItems = () => {
 
     const getOrder = async () => {
         const data = await fetch("http://localhost:3001/orders/" + orderId)
-        console.log(data)
         return await data.json()
     }
 
@@ -22,16 +24,17 @@ const ReviewOrderItems = () => {
     }, [])
 
     const displayOrderItems = () => {
-        // if (orderItems.length > 0) {
             return orderItems.map(orderItem => {
                 return <EditQuantity key={orderItem.menuItemId} quantity={orderItem.quantity} menuItemId={orderItem.menuItemId} />
             })
-        // }
-        // else return ErrorMessage
     }
     return (
-            <main>
+            <main className={'container center-align'}>
+                <h4>Please check your order before submitting</h4>
                 {displayOrderItems()}
+                <Link to="/submittedOrder">
+                    <button className={'btn submit-order-button'}>SUBMIT ORDER</button>
+                </Link>
             </main>
     )
 }

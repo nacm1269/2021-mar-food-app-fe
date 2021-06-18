@@ -73,50 +73,41 @@ const MenuItem = (props) => {
     }
 
     return (
-        <div className={"items-list"}>
-            <img src={props.image} alt={props.name}/>
-            <h1>
-                {props.name}
-            </h1>
-            <h2>
-                {props.description}
-            </h2>
+    <div className="container">
+        <div className="row">
+            <div className={"items-list"}>
             <h3>
-                £{props.price.$numberDecimal}
+                {props.name}
             </h3>
-
+            <h6>
+                {props.description}
+            </h6>
+            <p>
+                £{props.price.$numberDecimal}
+            </p>
                 <div className={"quantityButtons"}>
             <Button id={"quantity-button"} className='waves-effect waves-light btn-small black white-text' onClick={removeFromQuantity} style={{margin: '10px', height: '30px', width: '10px'}}>
-                    {/*onClick we want to take the menu item's id from props*/}
-                    {/*count the amount of times this button is clicked (what function?)*/}
-                    {/*pass this number and the menu item id to the 'AddToOrder' component*/}
-                    {/*store the menu item id and clicks as a quantity in an object that will populate the 'order items' array*/}
                 -
             </Button>
-            <h4 style={{
-                display: 'inline'
-            }}>
+                    <div> </div>
+            <p>
                 {quantity}
-            </h4>
-            <Button id={"quantity-button"} className='waves-effect waves-light btn-small black white-text ' onClick={addToQuantity}>
-                    {/*// style={{marginLeft: '10px', height: '30px', width: '10px'}}>*/}
+            </p>
+            <Button id={"quantity-button"} className='waves-effect waves-light btn-small white-text ' onClick={addToQuantity} style={{margin: '10px', height: '30px', width: '10px'}}>
+
                 +
             </Button>
-            <Button className='waves-effect waves-light btn-small black white-text ' onClick={ () => addItemToOrder(order)}>
-                    {/*// style={{margin: '10px'}}>*/}
+            <Button className='waves-effect waves-light btn-small black white-text ' onClick={ () => addItemToOrder(order)} style={{margin: '10px'}}>
                 Add Item To Order
             </Button>
-            <Button onClick={ () => removeItemFromOrder(removeFromOrder)}
+            <Button className={'red'} onClick={ () => removeItemFromOrder(removeFromOrder)}
                     style={{margin: '10px'}}>
                 <i className="material-icons">delete</i>
             </Button>
-            {/*<Button className='waves-effect waves-light btn-small black white-text ' onClick={removeItemFromOrder}>*/}
-            {/*    Remove Item From Order*/}
-            {/*</Button>*/}
                 </div>
-            <Button>Review Order</Button>
+            </div>
         </div>
-
+    </div>
     )
 }
 

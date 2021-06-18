@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import MenuItem from "../MenuItem";
 import ErrorMessage from "../../ErrorMessage";
 import MenuCourses from "../MenuCourses";
+import {Button} from "react-materialize";
 
 const Starters = () => {
 
@@ -33,7 +34,7 @@ const Starters = () => {
     return (
         <div>
             <MenuCourses/>
-            <main>
+            <main className={"container center"}>
                 {displayStarters()}
             </main>
         </div>

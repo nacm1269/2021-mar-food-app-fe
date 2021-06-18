@@ -10,7 +10,6 @@ const EditQuantity = (props) => {
 
     const getDish = async () => {
         const data = await fetch("http://localhost:3001/dishes/individualDishes/" + menuItemId)
-        console.log(data)
         return await data.json()
     }
 
@@ -38,6 +37,28 @@ const EditQuantity = (props) => {
          "quantity": quantity
     }
 
+    const removeFromOrder = {
+        orderId: orderId,
+        menuItemId: menuItemId,
+    }
+
+    const removeItemFromOrder = (order) => {
+        console.log(order)
+        if (removeFromOrder.menuItemId !== null) {
+            fetch('http://localhost:3001/orders', {
+                "method": "PUT",
+                "body": JSON.stringify(removeFromOrder),
+                "headers":
+                    {
+                        "content-type": "application/JSON"
+                    }
+            })
+                .then(res => res.json())
+                .then((data) => {
+                })
+        }
+    }
+
     const editOrderQuantity = async (editedOrder) => {
         console.log(editedOrder)
         if (editedOrder.quantity !== 0) {
@@ -58,28 +79,32 @@ const EditQuantity = (props) => {
             console.error('There was an error!');
         }
     }
+
     return (
         <div>
-            <h1>{orderItem.name}</h1>
+            <h4>{orderItem.name}</h4>
             <Button className='waves-effect waves-light btn-small black white-text ' onClick={decrementQuantity}
                     style={{margin: '10px'}}>
                 -
             </Button>
-            <h4 style={{
+            <p style={{
                 display: 'inline'
             }}>
                 {quantity}
-            </h4>
+            </p>
             <Button className='waves-effect waves-light btn-small black white-text ' onClick={incrementQuantity}
                     style={{margin: '10px'}}>
                 +
             </Button>
-
+            <Button className={'red'} onClick={ () => removeItemFromOrder(removeFromOrder)}
+                    style={{margin: '10px'}}>
+                <i className="material-icons">delete</i>
+            </Button>
             <Button className='waves-effect waves-light btn-small black white-text ' onClick={ () => editOrderQuantity(editedOrder)}
                     style={{margin: '10px'}}>
                 Confirm new quantity
             </Button>
-                </div>
+        </div>
             )
 
 }
