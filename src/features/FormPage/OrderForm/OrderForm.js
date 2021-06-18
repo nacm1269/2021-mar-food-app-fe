@@ -59,7 +59,7 @@ const OrderForm = () => {
     return (
         <div className={'container'}>
             <form>
-                <h5>In order to ensure our food is enjoyed at it's best. We only accept orders within a 3 mile radius.</h5>
+                <h5>To ensure our food is enjoyed at its best, we only accept orders within a 3 mile radius.</h5>
                 <h5>Please fill in your details to continue.</h5>
                 <label>
                     Name:

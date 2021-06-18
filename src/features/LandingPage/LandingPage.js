@@ -2,8 +2,7 @@ import React from 'react'
 import 'materialize-css';
 import { Button} from 'react-materialize';
 import {Link} from 'react-router-dom'
-import restaurantImage from './restaurantImage.jpg'
-import balogo1 from './balogo1.png'
+import plateBackground from './plateBackground.jpeg'
 import bonLogo from '../../Bon-logo.png'
 import './LandingPage.css'
 
@@ -11,7 +10,7 @@ const LandingPage = () => {
     return (
         <div className='responsive-img box'
              style={{
-                 backgroundImage: `url(${restaurantImage})`,
+                 backgroundImage: `url(${plateBackground})`,
                  backgroundSize: "cover",
                  height: "100vh",
                  width: "100vw",

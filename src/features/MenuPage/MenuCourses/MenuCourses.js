@@ -60,7 +60,7 @@ const MenuCourses = () => {
                     <h4>Desserts</h4>
                 </div>
                 <div className={"col s-3 course-names"}>
-                    <h4>Refreshments</h4>
+                    <h4>Cocktails</h4>
                 </div>
             </div>
             <div className={'row'}>

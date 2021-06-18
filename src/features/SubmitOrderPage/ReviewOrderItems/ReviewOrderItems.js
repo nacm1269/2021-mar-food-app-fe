@@ -4,6 +4,7 @@ import EditQuantity from "../EditQuantity/EditQuantity";
 import SubmitOrder from "../SubmitOrder/SubmitOrder";
 import { Link } from 'react-router-dom'
 import './ReviewOrderItems.css'
+import bonLogo from '../../../Bon-logo.png'
 
 const ReviewOrderItems = () => {
 
