@@ -98,7 +98,7 @@ const MenuItem = (props) => {
 
                 +
             </Button>
-            <Button className='waves-effect waves-light btn-small black white-text ' onClick={ () => addItemToOrder(order)}>
+            <Button className='waves-effect waves-light btn-small black white-text' onClick={ () => addItemToOrder(order)}>
                 Add Item To Order
             </Button>
             <Button className={'red center-align'} onClick={ () => removeItemFromOrder(removeFromOrder)}>

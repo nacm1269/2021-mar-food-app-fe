@@ -40,7 +40,7 @@ const Desserts = () => {
             <h1>Desserts</h1>
             {displayDesserts()}
             <div className={'row'}>
-                <Link className={"waves-light btn-small center-align review-order-button"} to={'/reviewOrder'}>REVIEW ORDER</Link>
+                <Link className={"waves-light btn center-align review-order-button"} to={'/reviewOrder'}>REVIEW ORDER</Link>
             </div>
         </main>
         </div>
