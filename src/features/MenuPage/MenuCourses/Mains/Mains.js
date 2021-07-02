@@ -33,7 +33,8 @@ const Mains = () => {
     return (
         <div>
             <MenuCourses/>
-            <main>
+            <main className={"container center"}>
+                <h1>Mains</h1>
                 {displayMains()}
             </main>
         </div>

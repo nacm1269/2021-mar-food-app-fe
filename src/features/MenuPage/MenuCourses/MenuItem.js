@@ -73,6 +73,7 @@ const MenuItem = (props) => {
     }
 
     return (
+
     <div className="container">
         <div className="row">
             <div className={"items-list"}>

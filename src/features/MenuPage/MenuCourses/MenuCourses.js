@@ -6,63 +6,57 @@ import DishTwo from './DishTwo.png'
 import DishThree from './DishThree.png'
 import Refreshment from './Refreshment.png'
 import './MenuCourses.css'
-import {Button} from "react-materialize";
+import {useState, useEffect} from "react";
 
 const MenuCourses = () => {
+
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1200);
+    {/* Performs similarly to componentDidMount in classes */}
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            const ismobile = window.innerWidth < 800;
+            if (ismobile !== isMobile) setIsMobile(ismobile);
+        }, false);
+    }, [isMobile]);
+
     return (
-        <div className={"container"}>
-        <div className={"row"}>
+        <div className={"container center"}>
+        <div className={"row image-flex"}>
             <div className={"col s3"}>
                 <Link to="/starters">
-                    <img className={"responsive-img"} style={{
-                        padding: "25px",
-                        width: "40vh",
-                        alt: "image of a starter"
-                    }} src={DishOne} />
+                    <img className={`${isMobile ? null : "responsive-img"}`} src={DishOne} alt="image of a starter"/>
                 </Link>
             </div>
             <div className={"col s3"}>
                 <Link to="/mains">
-                    <img className={"responsive-img"} style={{
-                        padding: "25px",
-                        width: "40vh",
-                        alt: "image of a main meal"
-                    }} src={DishTwo} />
+                    <img className={`${isMobile ? null : "responsive-img"}`} src={DishTwo} />
                 </Link>
             </div>
             <div className={"col s3"}>
                 <Link to="/desserts">
-                    <img className={"responsive-img"} style={{
-                        padding: "25px",
-                        width: "50vh",
-                        alt: "image of a dessert"
-                    }} src={DishThree} />
+                    <img className={`${isMobile ? null : "responsive-img"}`} src={DishThree} />
                 </Link>
             </div>
             <div className={"col s3"}>
                 <Link to="/refreshments">
-                    <img className={"responsive-img"} style={{
-                        padding: "25px",
-                        width: "40vh",
-                        alt: "image of a cocktail"
-                    }} src={Refreshment} />
+                    <img className={`${isMobile ? null : "responsive-img"}`} src={Refreshment} />
                 </Link>
             </div>
             </div>
-            <div className={"row"}>
-                <div className={"col s-3 course-names"}>
-                    <h4>Starters</h4>
-                </div>
-                <div className={"col s-3 course-names"}>
-                    <h4>Mains</h4>
-                </div>
-                <div className={"col s-3 course-names"}>
-                    <h4>Desserts</h4>
-                </div>
-                <div className={"col s-3 course-names"}>
-                    <h4>Cocktails</h4>
-                </div>
-            </div>
+            {/*<div className={"row"}>*/}
+            {/*    <div className={"col s-3 course-names"}>*/}
+            {/*        <h4>Starters</h4>*/}
+            {/*    </div>*/}
+            {/*    <div className={"col s-3 course-names"}>*/}
+            {/*        <h4>Mains</h4>*/}
+            {/*    </div>*/}
+            {/*    <div className={"col s-3 course-names"}>*/}
+            {/*        <h4>Desserts</h4>*/}
+            {/*    </div>*/}
+            {/*    <div className={"col s-3 course-names"}>*/}
+            {/*        <h4>Cocktails</h4>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
             <div className={'row'}>
                 <Link className={"waves-light btn-small center-align review-order-button"} to={'/reviewOrder'}>REVIEW ORDER</Link>
             </div>

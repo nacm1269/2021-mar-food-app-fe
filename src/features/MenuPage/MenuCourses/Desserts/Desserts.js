@@ -35,7 +35,8 @@ const Desserts = () => {
     return (
         <div>
         <MenuCourses/>
-        <main>
+        <main className={"container center"}>
+            <h1>Desserts</h1>
             {displayDesserts()}
         </main>
         </div>
