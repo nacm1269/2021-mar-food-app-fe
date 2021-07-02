@@ -3,6 +3,7 @@ import MenuItem from "../MenuItem";
 import ErrorMessage from "../../ErrorMessage";
 import MenuCourses from "../MenuCourses";
 import {Button} from "react-materialize";
+import {Link} from "react-router-dom";
 
 const Desserts = () => {
 
@@ -38,6 +39,9 @@ const Desserts = () => {
         <main className={"container center"}>
             <h1>Desserts</h1>
             {displayDesserts()}
+            <div className={'row'}>
+                <Link className={"waves-light btn-small center-align review-order-button"} to={'/reviewOrder'}>REVIEW ORDER</Link>
+            </div>
         </main>
         </div>
     )

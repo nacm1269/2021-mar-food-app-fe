@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import MenuItem from "../MenuItem";
 import ErrorMessage from "../../ErrorMessage";
 import MenuCourses from "../MenuCourses";
+import {Link} from "react-router-dom";
 
 
 const Starters = () => {
@@ -42,6 +43,9 @@ const Starters = () => {
             <main className={"container center"}>
                 <h1>Starters</h1>
                 {displayStarters()}
+                <div className={'row'}>
+                    <Link className={"waves-light btn-small center-align review-order-button"} to={'/reviewOrder'}>REVIEW ORDER</Link>
+                </div>
             </main>
         </div>
     )

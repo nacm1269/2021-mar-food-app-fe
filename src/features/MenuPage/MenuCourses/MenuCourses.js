@@ -43,23 +43,6 @@ const MenuCourses = () => {
                 </Link>
             </div>
             </div>
-            {/*<div className={"row"}>*/}
-            {/*    <div className={"col s-3 course-names"}>*/}
-            {/*        <h4>Starters</h4>*/}
-            {/*    </div>*/}
-            {/*    <div className={"col s-3 course-names"}>*/}
-            {/*        <h4>Mains</h4>*/}
-            {/*    </div>*/}
-            {/*    <div className={"col s-3 course-names"}>*/}
-            {/*        <h4>Desserts</h4>*/}
-            {/*    </div>*/}
-            {/*    <div className={"col s-3 course-names"}>*/}
-            {/*        <h4>Cocktails</h4>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-            <div className={'row'}>
-                <Link className={"waves-light btn-small center-align review-order-button"} to={'/reviewOrder'}>REVIEW ORDER</Link>
-            </div>
         </div>
 
         )
