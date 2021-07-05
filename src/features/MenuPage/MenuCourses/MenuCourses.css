@@ -1,5 +1,19 @@
-.review-order-button {
-    position: fixed;
-    left: 75%;
-    top: 90%;
+
+img {
+    /*position: relative;*/
+    height: 365px;
+    padding: 30px;
+}
+
+.image-flex {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+@media screen and (max-width: 800px) {
+    img {
+        height: 150px;
+        padding: 20px;
+    }
 }

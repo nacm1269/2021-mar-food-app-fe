@@ -27,12 +27,7 @@ const LandingPage = () => {
                 bottom:"3%"}
             }>
                 <Link to="/formpage">
-                    <Button className='waves-effect waves-light btn-small white black-text' id='landing-button' style={{
-                        fontWeight: "bold",
-                        letterSpacing: "2px",
-                        width: "10vw",
-                        height: "2vw",
-                    }}>
+                    <Button className='waves-effect waves-light btn-small white black-text' id='landing-button'>
                         Enter Site
                     </Button>
                 </Link>

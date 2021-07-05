@@ -1,6 +1,7 @@
 import React from 'react'
 import {useEffect, useState} from "react";
 import {Button} from "react-materialize";
+import './EditQuantity.css';
 
 const EditQuantity = (props) => {
     const menuItemId = props.menuItemId
@@ -83,7 +84,7 @@ const EditQuantity = (props) => {
     return (
         <div>
             <h4>{orderItem.name}</h4>
-            <Button className='waves-effect waves-light btn-small black white-text ' onClick={decrementQuantity}
+            <Button className='quantity-button waves-effect waves-light btn-small black white-text ' onClick={decrementQuantity}
                     style={{margin: '10px'}}>
                 -
             </Button>
@@ -92,7 +93,7 @@ const EditQuantity = (props) => {
             }}>
                 {quantity}
             </p>
-            <Button className='waves-effect waves-light btn-small black white-text ' onClick={incrementQuantity}
+            <Button className='quantity-button waves-effect waves-light btn-small black white-text ' onClick={incrementQuantity}
                     style={{margin: '10px'}}>
                 +
             </Button>

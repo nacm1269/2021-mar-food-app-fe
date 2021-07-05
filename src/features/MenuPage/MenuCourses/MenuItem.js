@@ -73,7 +73,8 @@ const MenuItem = (props) => {
     }
 
     return (
-    <div className="container">
+
+    <div className="container center">
         <div className="row">
             <div className={"items-list"}>
             <h3>
@@ -86,22 +87,21 @@ const MenuItem = (props) => {
                 £{props.price.$numberDecimal}
             </p>
                 <div className={"quantityButtons"}>
-            <Button id={"quantity-button"} className='waves-effect waves-light btn-small black white-text' onClick={removeFromQuantity} style={{margin: '10px', height: '30px', width: '10px'}}>
+            <Button id={"quantity-button"} className='waves-effect waves-light btn-small black white-text center-align' onClick={removeFromQuantity} >
                 -
             </Button>
                     <div> </div>
             <p>
                 {quantity}
             </p>
-            <Button id={"quantity-button"} className='waves-effect waves-light btn-small white-text ' onClick={addToQuantity} style={{margin: '10px', height: '30px', width: '10px'}}>
+            <Button id={"quantity-button"} className='waves-effect waves-light btn-small white-text center-align ' onClick={addToQuantity} >
 
                 +
             </Button>
-            <Button className='waves-effect waves-light btn-small black white-text ' onClick={ () => addItemToOrder(order)} style={{margin: '10px'}}>
+            <Button className='waves-effect waves-light btn-small black white-text' onClick={ () => addItemToOrder(order)}>
                 Add Item To Order
             </Button>
-            <Button className={'red'} onClick={ () => removeItemFromOrder(removeFromOrder)}
-                    style={{margin: '10px'}}>
+            <Button className={'red center-align'} onClick={ () => removeItemFromOrder(removeFromOrder)}>
                 <i className="material-icons">delete</i>
             </Button>
                 </div>
