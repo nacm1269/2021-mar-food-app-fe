@@ -1,3 +1,6 @@
+This is a restaurant front-end project that was built using React.
+[Live link.] (https://2021-mar-restaurant-fe.dev.io-academy.uk/)
+
 ## Available Scripts
 
 In the project directory, you can run:
